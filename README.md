@@ -20,6 +20,23 @@ Then in order to run the sample you need to do the following:
 4. Run `yarn codegen` to generate graphql queries
 5. Run `yarn dev` to start the site
 
+Create a new experience of `Blank Experience` type.
+
+![adding experience](docs/create_experience.png)
+
+Type in the name and hit `Create Experience`.
+
+![creating experience](docs/create_experience_dialog.png)
+
+If you would like to see the site preview in Edit Mode of your SaaS instance
+you will need to configure it in `Settings`.
+
+![websites list](docs/settings_sites.png)
+
+Add a website like this:
+
+![adding new website](docs/settings_site.png)
+
 ## A detailed process of creating this sample Hello World app
 
 If you would like to build this site from scratch then please find the instructions below:

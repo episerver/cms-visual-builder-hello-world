@@ -1,26 +1,31 @@
 # Visual Builder Hello World example
 
-## How to use Visual Builder in SaaS
+## How to use Visual Builder in CMS (SaaS)
 
-This is a Hello World example of the Optimizely Visual Builder
-Ensure you have a running Optimizely CMS SaaS instance. For more information on saas [click here]("https://docs.developers.optimizely.com/content-management-system/v1.0.0-CMS-SaaS/docs/overview-of-cms-saas")
+This repository contains a Hello World example of the Optimizely Visual Builder.
+Ensure you have a running an Optimizely CMS (SaaS) instance. For more information on CMS (SaaS) see the [developer documentation](https://docs.developers.optimizely.com/content-management-system/v1.0.0-CMS-SaaS/docs/overview-of-cms-saas) or [end-user documentation](https://support.optimizely.com/hc/en-us/categories/27676671778061).
 
-If you have an empty CMS instance, and you just want to see how it all
-works then go to your instance and:
+If you have an empty CMS instance, and you want to see how it all
+works go to your CMS (SaaS) instance and:
 
-1. Go to admin mode
-2. Open content types list
-3. Create a new `Element type`
-4. Name it `ParagraphElement`
-5. Add a single `Text` property of type XHTML string
+1. Go to **Settings** > **Content Types**.
+2. Click **Create New** and select **Element Type** from the drop-down list.
+4. Enter _ParagraphElement_ for the **Name** and **Display name** fields.
+5. Click **Create**. 
+6. Click **Add Property** and select **Text** from the drop-down list.
+7. Enter _ParagraphElementText_ for the **Name** in the **Configure Property** page.
+8. Click on the **Text Type** drop-down menu and select **XHTML string (>255)**.
+9. Click **Save**.
 
 Then in order to run the sample you need to do the following:
 
-1. Clone this repository
-2. Copy `Single key` from Optimizely CMS Dashboard
-3. Put the key in .env.local file
-4. Run `yarn codegen` to generate graphql queries
-5. Run `yarn dev` to start the site
+1. Clone this repository.
+2. Create a new file, named `.env.local`. 
+3. From the Optimizely CMS (SaaS) dashboard, copy the `Single key` from the **Render Content** section.
+4. In the `.env.local` file, enter "GRAPH_SINGLE_KEY=" and paste your `Single key` from step 3.
+5. Run `npm install`.
+6. Run `yarn codegen` to generate graphql queries.
+7. Run `yarn dev` to start the site.
 
 Create a new experience of `Blank Experience` type.
 

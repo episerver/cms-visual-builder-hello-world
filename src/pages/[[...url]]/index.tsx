@@ -1,10 +1,11 @@
 import VisualBuilderComponent from "@/components/base/VisualBuilderComponent";
 import { Inter } from "next/font/google";
+import useSimpleReloader from "@/hooks/useSimpleReloader";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
+  useSimpleReloader();
   let version: string | null = null
   if (typeof window !== "undefined" && window.location !== undefined) {
     const pathArray = window?.location?.pathname?.split('/')

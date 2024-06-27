@@ -208,61 +208,31 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ version }) => {
 
     return (
         <div className="relative w-full flex-1 vb:outline">
-            {
-                data?._Experience?.items?.map((experience: any) => {
-                    return (
-                        <div key="unstructuredData" className="relative w-full flex-1 vb:outline">
-                            {
-                                experience?.composition?.grids?.map((grid: any) => {
-                                        if (grid?.__typename === "CompositionStructureNode") {
-                                            return (
+            {data?._Experience?.items?.map((experience: any) => (
+                <div className="relative w-full flex-1 vb:outline">
+                    {experience?.composition?.grids?.map((grid: any) =>
+                        <div className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
+                             data-epi-block-id={grid?.key}>
+                            {grid.rows?.map((row: any) =>
+                                <div
+                                    className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
+                                    {row.columns?.map((column: any) => (
+                                        <div
+                                            className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
+                                            {column.elements?.map((element: any) =>
                                                 <div
-                                                    className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
-                                                    data-epi-block-id={grid?.key}>
-                                                    {
-                                                        grid.rows?.map((row: any) => {
-                                                                if (row?.__typename === "CompositionStructureNode") {
-                                                                    return (
-                                                                        <div
-                                                                            className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
-                                                                            {
-                                                                                row.columns?.map((column: any) => {
-                                                                                    if (column?.__typename === "CompositionStructureNode") {
-                                                                                        return (
-                                                                                            <div
-                                                                                                className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
-                                                                                                {
-                                                                                                    column.elements?.map((element: any) => {
-                                                                                                        if (element?.__typename === "CompositionElementNode") {
-                                                                                                            return <div
-                                                                                                                data-epi-block-id={element?.key}>
-                                                                                                                <CompositionNodeComponent
-                                                                                                                    compositionElementNode={element}/>
-                                                                                                            </div>
-                                                                                                        }
-                                                                                                    })
-                                                                                                }
-                                                                                            </div>
-                                                                                        )
-                                                                                    }
-                                                                                })
-                                                                            }
-                                                                        </div>
-                                                                    )
-                                                                }
-                                                            }
-                                                        )
-                                                    }
+                                                    data-epi-block-id={element?.key}>
+                                                    <CompositionNodeComponent
+                                                        compositionElementNode={element}/>
                                                 </div>
-                                            )
-                                        }
-                                    }
-                                )
-                            }
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>)}
                         </div>
-                    )
-                })
-            }
+                    )}
+                </div>
+            ))}
         </div>
     )
 }
@@ -271,6 +241,7 @@ export default VisualBuilderComponent
 ```
 
 It's basically a nested loop on a few levels. First we iterate over sections, then rows, then columns and finally elements.
+We are wrapping each of those layout items into basic tailwind grid classes.
 
 In this simple example there is just one element type but we don't want to hardcode anything so here is a pattern 
 that you can use to use a different element component per `nodeType`:

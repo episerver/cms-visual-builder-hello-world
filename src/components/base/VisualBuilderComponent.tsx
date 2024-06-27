@@ -45,61 +45,31 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ version }) => {
 
     return (
         <div className="relative w-full flex-1 vb:outline">
-            {
-                data?._Experience?.items?.map((experience: any) => {
-                    return (
-                        <div key="unstructuredData" className="relative w-full flex-1 vb:outline">
-                            {
-                                experience?.composition?.grids?.map((grid: any) => {
-                                        if (grid?.__typename === "CompositionStructureNode") {
-                                            return (
+            {data?._Experience?.items?.map((experience: any) => (
+                <div className="relative w-full flex-1 vb:outline">
+                    {experience?.composition?.grids?.map((grid: any) =>
+                        <div className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
+                             data-epi-block-id={grid?.key}>
+                            {grid.rows?.map((row: any) =>
+                                <div
+                                    className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
+                                    {row.columns?.map((column: any) => (
+                                        <div
+                                            className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
+                                            {column.elements?.map((element: any) =>
                                                 <div
-                                                    className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
-                                                    data-epi-block-id={grid?.key}>
-                                                    {
-                                                        grid.rows?.map((row: any) => {
-                                                                if (row?.__typename === "CompositionStructureNode") {
-                                                                    return (
-                                                                        <div
-                                                                            className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
-                                                                            {
-                                                                                row.columns?.map((column: any) => {
-                                                                                    if (column?.__typename === "CompositionStructureNode") {
-                                                                                        return (
-                                                                                            <div
-                                                                                                className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
-                                                                                                {
-                                                                                                    column.elements?.map((element: any) => {
-                                                                                                        if (element?.__typename === "CompositionElementNode") {
-                                                                                                            return <div
-                                                                                                                data-epi-block-id={element?.key}>
-                                                                                                                <CompositionNodeComponent
-                                                                                                                    compositionElementNode={element}/>
-                                                                                                            </div>
-                                                                                                        }
-                                                                                                    })
-                                                                                                }
-                                                                                            </div>
-                                                                                        )
-                                                                                    }
-                                                                                })
-                                                                            }
-                                                                        </div>
-                                                                    )
-                                                                }
-                                                            }
-                                                        )
-                                                    }
+                                                    data-epi-block-id={element?.key}>
+                                                    <CompositionNodeComponent
+                                                        compositionElementNode={element}/>
                                                 </div>
-                                            )
-                                        }
-                                    }
-                                )
-                            }
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>)}
                         </div>
-                    )
-                })
-            }
+                    )}
+                </div>
+            ))}
         </div>
     )
 }

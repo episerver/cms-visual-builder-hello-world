@@ -1,7 +1,7 @@
 import { FragmentType, useFragment } from '../../graphql/fragment-masking'
 import { graphql } from '@/graphql'
 import ParagraphElementComponent from '../elements/ParagraphElementComponent'
- 
+
 export const CompositionElementNodeFragment = graphql(/* GraphQL */ `
     fragment compositionElementNode on CompositionElementNode {
         key
@@ -13,22 +13,18 @@ export const CompositionElementNodeFragment = graphql(/* GraphQL */ `
         }
     }
 `)
- 
+
 const CompositionElementNodeComponent = (props: {
     compositionElementNode: FragmentType<typeof CompositionElementNodeFragment>
 }) => {
     const compositionElementNode = useFragment(CompositionElementNodeFragment, props.compositionElementNode)
-    return JSON.stringify(compositionElementNode);
-    // const element = compositionElementNode.element
-    // return JSON.stringify(element);
-    // switch(element?.__typename)
-    // {
-    //     case "ParagraphElement":
-    //         return <div data-epi-block-id={compositionElementNode.key}><ParagraphElementComponent paragraphElement={element} /></div>
-    //     default:
-    //         return JSON.stringify(element)
-    //         // return <>NotImplementedException</>
-    // }
+    const element = compositionElementNode.element
+    switch (element?.__typename) {
+        case "ParagraphElement":
+            return <ParagraphElementComponent paragraphElement={element}/>
+        default:
+            return <>NotImplementedException</>
+    }
 }
- 
+
 export default CompositionElementNodeComponent

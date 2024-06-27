@@ -31,17 +31,14 @@ if (typeof window !== "undefined" && window.location !== undefined) {
         communicationScript.src = `https://app-sactlateste7x2e1p001.cmstest.optimizely.com/Util/javascript/communicationInjector.js`;
         communicationScript.setAttribute('data-nscript', 'afterInteractive')
         document.body.appendChild(communicationScript);
-
-        const deliveryPropertyRenderer = document.createElement('script');
-        deliveryPropertyRenderer.src = `https://app-sactlateste7x2e1p001.cmstest.optimizely.com/Util/javascript/deliveryPropertyRenderer.js`;
-        deliveryPropertyRenderer.setAttribute('data-nscript', 'afterInteractive')
-        document.body.appendChild(deliveryPropertyRenderer);
     }
 }
 
 if (client === undefined) {
+    // const singleGraphKey = process.env.GRAPH_SINGLE_KEY;
+    const singleGraphKey = "KSAzBegmYvXIKE3bEbechiYrYiPKsVyACWEt4cLQJFkSr3SD";
     const httpLink = createHttpLink({
-        uri: 'https://staging.cg.optimizely.com/content/v2?auth=KSAzBegmYvXIKE3bEbechiYrYiPKsVyACWEt4cLQJFkSr3SD',
+        uri: `https://staging.cg.optimizely.com/content/v2?auth=${singleGraphKey}`,
     });
 
     const authLink = setContext((_, { headers }) => {

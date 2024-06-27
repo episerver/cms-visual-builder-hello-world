@@ -117,7 +117,7 @@ After that you should see the newly created element type in the list.
 Now let's go back to our Next.js application and let's try to run the codegen script.
 First you will need to fill in your GRAPH_SINGLE_KEY into `.env.local` file (create it if it does not exist)
 
-![fill GRAPH_SINGLE_KEY](docs/graph_single_key.png)
+![fill GRAPH_SINGLE_KEY](docs/configuration_anonymized_key.jpg)
 
 > yarn codegen
 

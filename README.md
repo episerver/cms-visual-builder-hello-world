@@ -1,4 +1,6 @@
-# How to use Visual Builder in SaaS
+# Visual Builder Hello World example
+
+## How to use Visual Builder in SaaS
 
 This is a Hello World example of the Optimizely Visual Builder
 Ensure you have a running Optimizely CMS SaaS instance. For more information on saas [click here]("https://docs.developers.optimizely.com/content-management-system/v1.0.0-CMS-SaaS/docs/overview-of-cms-saas")
@@ -39,7 +41,8 @@ Add a website like this:
 
 ## A detailed process of creating this sample Hello World app
 
-If you would like to build this site from scratch then please find the instructions below:
+All parts of this repository are described step by step so if you prefer to build stuff yourself
+then please find the instructions below. 
 
 ### Prerequisites
 

@@ -1,9 +1,9 @@
 # How to use Visual Builder in SaaS
 
 This is a Hello World example of the Optimizely Visual Builder
-Ensure you have a running Optimizely CMS SaaS instance. For reference CLICK HERE
+Ensure you have a running Optimizely CMS SaaS instance. For more information on saas [click here]("https://docs.developers.optimizely.com/content-management-system/v1.0.0-CMS-SaaS/docs/overview-of-cms-saas")
 
-If you have an empty CMS instance and you just want to see how it all
+If you have an empty CMS instance, and you just want to see how it all
 works then go to your instance and:
 
 1. Go to admin mode

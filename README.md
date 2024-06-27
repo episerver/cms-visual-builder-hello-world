@@ -16,7 +16,7 @@ Then in order to run the sample you need to do the following:
 
 1. Clone this repository
 2. Copy `Single key` from Optimizely CMS Dashboard
-3. Put the key in codegen.ts
+3. Put the key in .env.local file
 4. Run `yarn codegen` to generate graphql queries
 5. Run `yarn dev` to start the site
 
@@ -41,12 +41,15 @@ Now let's add a configuration file for the codegen plugin. Please create a new f
 and paste the following code:
 
 ```ts
-import { CodegenConfig  } from '@graphql-codegen/cli'
+import { CodegenConfig } from "@graphql-codegen/cli";
+import { loadEnvConfig } from "@next/env";
 
-const graphSingleKey = "YOUR_SINGLE_KEY_HERE"; // ideally read this from an env variable
+loadEnvConfig(process.cwd());
+
+const graphSingleKey = process.env.GRAPH_SINGLE_KEY
 
 const config : CodegenConfig = {
-    schema: $`https://staging.cg.optimizely.com/content/v2?auth={graphSingleKey}}`,
+    schema: `https://staging.cg.optimizely.com/content/v2?auth=${graphSingleKey}`,
     documents: ["src/**/*.{ts,tsx}"],
     ignoreNoDocuments: true,
     generates: {
@@ -86,6 +89,9 @@ After that you should see the newly created element type in the list.
 ### Graphql generation
 
 Now let's go back to our Next.js application and let's try to run the codegen script.
+First you will need to fill in your GRAPH_SINGLE_KEY into `.env.local` file (create it if it does not exist)
+
+![fill GRAPH_SINGLE_KEY](docs/graph_single_key.png)
 
 > yarn codegen
 

@@ -35,8 +35,7 @@ if (typeof window !== "undefined" && window.location !== undefined) {
 }
 
 if (client === undefined) {
-    // const singleGraphKey = process.env.GRAPH_SINGLE_KEY;
-    const singleGraphKey = "KSAzBegmYvXIKE3bEbechiYrYiPKsVyACWEt4cLQJFkSr3SD";
+    const singleGraphKey = process.env.GRAPH_SINGLE_KEY;
     const httpLink = createHttpLink({
         uri: `https://staging.cg.optimizely.com/content/v2?auth=${singleGraphKey}`,
     });

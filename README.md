@@ -39,6 +39,12 @@ Add a website like this:
 
 ![adding new website](docs/settings_site.png)
 
+Now add a new section, row, column and an element of `Paragraph Type`.
+
+Fill in the text `Hello world!` and you should see it in the preview.
+
+![hello world](docs/hello_world.png)
+
 ## A detailed process of creating this sample Hello World app
 
 All parts of this repository are described step by step so if you prefer to build stuff yourself

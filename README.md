@@ -13,7 +13,7 @@ works go to your CMS (SaaS) instance and:
 3. Enter _ParagraphElement_ for the **Name** and **Display name** fields.
 4. Click **Create**. 
 5. Click **Add Property** and select **Text** from the drop-down list.
-6. Enter _ParagraphElementText_ for the **Name** in the **Configure Property** page.
+6. Enter _Text_ for the **Name** in the **Configure Property** page.
 7. Click on the **Text Type** drop-down menu and select **XHTML string (>255)**.
 8. Click **Save**.
 

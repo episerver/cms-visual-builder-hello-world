@@ -178,7 +178,10 @@ import CompositionNodeComponent from './CompositionNodeComponent'
 
 export const VisualBuilder = graphql(/* GraphQL */ `
 query VisualBuilder($key: String, $version: String) {
-  _Experience(where: { _metadata: { key: { eq: $key } version: { eq: $version } } }) {
+  _Experience(where: {
+      _metadata: { key: { eq: $key } }
+      _or: { _metadata: { version: { eq: $version } } }
+    }) {
     items {      
       composition {
             grids: nodes {
@@ -201,7 +204,8 @@ query VisualBuilder($key: String, $version: String) {
             }
           }
       _metadata {
-        version        
+        key
+        version,        
       }
     }
   }
@@ -209,11 +213,21 @@ query VisualBuilder($key: String, $version: String) {
 `)
 
 interface VisualBuilderProps {
-    version: string | null
+    key?: string;
+    version?: string;
 }
 
-const VisualBuilderComponent: FC<VisualBuilderProps> = ({ version }) => {
-    const { data } = useQuery(VisualBuilder, { variables: { version } })
+const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
+    const variables: Record<string, unknown> = {};
+    if (version) {
+        variables.version = version;
+    }
+
+    if (key) {
+        variables.key = key;
+    }
+
+    const { data } = useQuery(VisualBuilder, { variables: variables })
 
     return (
         <div className="relative w-full flex-1 vb:outline">

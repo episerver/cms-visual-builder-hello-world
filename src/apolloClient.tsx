@@ -2,6 +2,8 @@ import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 let client: ApolloClient<any> | undefined = undefined;
+const graphUrl = process.env.GRAPH_URL;
+const cmsUrl = process.env.CMS_URL;
 
 if (typeof window !== "undefined" && window.location !== undefined) {
     const queryString = window?.location?.search;
@@ -10,7 +12,7 @@ if (typeof window !== "undefined" && window.location !== undefined) {
 
     if (preview_token) {
         const httpLink = createHttpLink({
-            uri: 'https://staging.cg.optimizely.com/content/v2',
+            uri: `https://${graphUrl}/content/v2`,
         });
 
         const authLink = setContext((_, { headers }) => {
@@ -28,7 +30,7 @@ if (typeof window !== "undefined" && window.location !== undefined) {
         });
 
         const communicationScript = document.createElement('script');
-        communicationScript.src = `https://app-sactlateste7x2e1p001.cmstest.optimizely.com/Util/javascript/communicationInjector.js`;
+        communicationScript.src = `https://${cmsUrl}/Util/javascript/communicationInjector.js`;
         communicationScript.setAttribute('data-nscript', 'afterInteractive')
         document.body.appendChild(communicationScript);
     }
@@ -37,7 +39,7 @@ if (typeof window !== "undefined" && window.location !== undefined) {
 if (client === undefined) {
     const singleGraphKey = process.env.GRAPH_SINGLE_KEY;
     const httpLink = createHttpLink({
-        uri: `https://staging.cg.optimizely.com/content/v2?auth=${singleGraphKey}`,
+        uri: `https://${graphUrl}/content/v2?auth=${singleGraphKey}`,
     });
 
     const authLink = setContext((_, { headers }) => {

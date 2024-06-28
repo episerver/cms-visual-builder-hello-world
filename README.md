@@ -10,12 +10,12 @@ works go to your CMS (SaaS) instance and:
 
 1. Go to **Settings** > **Content Types**.
 2. Click **Create New** and select **Element Type** from the drop-down list.
-4. Enter _ParagraphElement_ for the **Name** and **Display name** fields.
-5. Click **Create**. 
-6. Click **Add Property** and select **Text** from the drop-down list.
-7. Enter _ParagraphElementText_ for the **Name** in the **Configure Property** page.
-8. Click on the **Text Type** drop-down menu and select **XHTML string (>255)**.
-9. Click **Save**.
+3. Enter _ParagraphElement_ for the **Name** and **Display name** fields.
+4. Click **Create**. 
+5. Click **Add Property** and select **Text** from the drop-down list.
+6. Enter _ParagraphElementText_ for the **Name** in the **Configure Property** page.
+7. Click on the **Text Type** drop-down menu and select **XHTML string (>255)**.
+8. Click **Save**.
 
 Then in order to run the sample you need to do the following:
 
@@ -23,11 +23,12 @@ Then in order to run the sample you need to do the following:
 2. Create a new file, named `.env.local`. 
 3. From the Optimizely CMS (SaaS) dashboard, copy the `Single key` from the **Render Content** section.
 4. In the `.env.local` file, enter "GRAPH_SINGLE_KEY=" and paste your `Single key` from step 3.
-5. Run `npm install`.
-6. Run `yarn codegen` to generate graphql queries.
-7. Run `yarn dev` to start the site.
+5. In the `.env.local` file, enter "CMS_URL=" and paste your `CMS` url, for example `app-mysuperapp.cms.optimizely.com`
+6. Run `yarn install`.
+7. Run `yarn codegen` to generate graphql queries.
+8. Run `yarn dev` to start the site. It will run on `https://localhost`
 
-Create a new experience of `Blank Experience` type.
+Now go to `Edit Mode` and create a new experience of `Blank Experience` type.
 
 ![adding experience](docs/create_experience.png)
 
@@ -40,11 +41,13 @@ you will need to configure it in `Settings`.
 
 ![websites list](docs/settings_sites.png)
 
-Add a website like this:
+Add a new website pointing to your local nextjs application running on `https://localhost:3000`.
+It should look like this:
 
 ![adding new website](docs/settings_site.png)
 
-Now add a new section, row, column and an element of `Paragraph Type`.
+Now go back to `Edit Mode` and to your `MyExperience`.
+Please add a new section, row, column and an element of `Paragraph Type`.
 
 Fill in the text `Hello world!` and you should see it in the preview.
 
@@ -77,10 +80,11 @@ import { loadEnvConfig } from "@next/env";
 
 loadEnvConfig(process.cwd());
 
+const graphUrl = process.env.GRAPH_URL
 const graphSingleKey = process.env.GRAPH_SINGLE_KEY
 
 const config : CodegenConfig = {
-    schema: `https://staging.cg.optimizely.com/content/v2?auth=${graphSingleKey}`,
+    schema: `https://${graphUrl}/content/v2?auth=${graphSingleKey}`,
     documents: ["src/**/*.{ts,tsx}"],
     ignoreNoDocuments: true,
     generates: {

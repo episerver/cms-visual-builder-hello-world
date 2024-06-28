@@ -3,10 +3,11 @@ import { loadEnvConfig } from "@next/env";
 
 loadEnvConfig(process.cwd());
 
+const graphUrl = process.env.GRAPH_URL
 const graphSingleKey = process.env.GRAPH_SINGLE_KEY
 
 const config : CodegenConfig = {
-    schema: `https://staging.cg.optimizely.com/content/v2?auth=${graphSingleKey}`,
+    schema: `https://${graphUrl}/content/v2?auth=${graphSingleKey}`,
     documents: ["src/**/*.{ts,tsx}"],
     ignoreNoDocuments: true,
     generates: {

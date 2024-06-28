@@ -8,6 +8,7 @@ export default function Home() {
     useSimpleReloader();
     let version: string | undefined;
     let key: string | undefined;
+
     if (typeof window !== "undefined" && window.location !== undefined) {
         if (window.location.pathname.indexOf("CMS/Content") && window.location.pathname.indexOf(",,")) {
             const pathArray = window?.location?.pathname?.split('/')
@@ -17,7 +18,7 @@ export default function Home() {
             if (contentIdArray.length > 1) {
                 version = contentIdArray[contentIdArray.length - 1]
             }
-        } else if (window.location.pathname.indexOf("/preview/")) {
+        } else if (window.location.pathname.indexOf("/preview?key")) {
             try {
                 const url = new URL(window.location.toString());
                 const urlKey = url.searchParams.get("key");

@@ -57,33 +57,42 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
 
     const { data } = useQuery(VisualBuilder, { variables: variables })
 
+    const experiences = data?._Experience?.items;
+    if (!experiences) {
+        return null;
+    }
+
+    const experience: any = experiences[experiences.length - 1];
+
+    if (!experience) {
+        return null;
+    }
+
     return (
         <div className="relative w-full flex-1 vb:outline">
-            {data?._Experience?.items?.map((experience: any) => (
-                <div className="relative w-full flex-1 vb:outline">
-                    {experience?.composition?.grids?.map((grid: any) =>
-                        <div className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
-                             data-epi-block-id={grid?.key}>
-                            {grid.rows?.map((row: any) =>
-                                <div
-                                    className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
-                                    {row.columns?.map((column: any) => (
-                                        <div
-                                            className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
-                                            {column.elements?.map((element: any) =>
-                                                <div
-                                                    data-epi-block-id={element?.key}>
-                                                    <CompositionNodeComponent
-                                                        compositionElementNode={element}/>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>)}
-                        </div>
-                    )}
-                </div>
-            ))}
+            <div className="relative w-full flex-1 vb:outline">
+                {experience?.composition?.grids?.map((grid: any) =>
+                    <div className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
+                         data-epi-block-id={grid?.key}>
+                        {grid.rows?.map((row: any) =>
+                            <div
+                                className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
+                                {row.columns?.map((column: any) => (
+                                    <div
+                                        className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
+                                        {column.elements?.map((element: any) =>
+                                            <div
+                                                data-epi-block-id={element?.key}>
+                                                <CompositionNodeComponent
+                                                    compositionElementNode={element}/>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>)}
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

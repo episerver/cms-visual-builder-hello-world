@@ -10,7 +10,8 @@ export default function Home() {
     let key: string | undefined;
 
     if (typeof window !== "undefined" && window.location !== undefined) {
-        if (window.location.pathname.indexOf("CMS/Content") && window.location.pathname.indexOf(",,")) {
+        let locationUrl = window.location.toString();
+        if (locationUrl.indexOf("/CMS/Content") !== -1 && locationUrl.indexOf(",,") !== -1) {
             const pathArray = window?.location?.pathname?.split('/')
             const contentId = pathArray[pathArray.length - 1]
 
@@ -18,9 +19,9 @@ export default function Home() {
             if (contentIdArray.length > 1) {
                 version = contentIdArray[contentIdArray.length - 1]
             }
-        } else if (window.location.pathname.indexOf("/preview?key")) {
+        } else if (locationUrl.indexOf("/preview?key")) {
             try {
-                const url = new URL(window.location.toString());
+                const url = new URL(locationUrl);
                 const urlKey = url.searchParams.get("key");
                 if (urlKey) {
                     key = urlKey;

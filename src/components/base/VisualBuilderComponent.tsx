@@ -1,8 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 
 import { graphql } from '@/graphql'
 import CompositionNodeComponent from './CompositionNodeComponent'
+import { onContentSaved } from "@/helpers/onContentSaved";
 
 export const VisualBuilder = graphql(/* GraphQL */ `
 query VisualBuilder($key: String, $version: String) {
@@ -55,8 +56,14 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
         variables.key = key;
     }
 
-    const { data } = useQuery(VisualBuilder, { variables: variables })
+    const { data, refetch } = useQuery(VisualBuilder, { variables: variables });
 
+    useEffect(() => {
+        onContentSaved(_ => {
+            refetch();
+        })
+    }, []);
+    
     const experiences = data?._Experience?.items;
     if (!experiences) {
         return null;

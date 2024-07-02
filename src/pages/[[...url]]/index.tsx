@@ -1,11 +1,9 @@
 import VisualBuilderComponent from "@/components/base/VisualBuilderComponent";
 import { Inter } from "next/font/google";
-import useSimpleReloader from "@/hooks/useSimpleReloader";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-    useSimpleReloader();
     let version: string | undefined;
     let key: string | undefined;
 

@@ -63,7 +63,7 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
             refetch();
         })
     }, []);
-    
+
     const experiences = data?._Experience?.items;
     if (!experiences) {
         return null;
@@ -79,19 +79,15 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
         <div className="relative w-full flex-1 vb:outline">
             <div className="relative w-full flex-1 vb:outline">
                 {experience?.composition?.grids?.map((grid: any) =>
-                    <div className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
-                         data-epi-block-id={grid?.key}>
+                    <div key={grid.key} className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
+                         data-epi-block-id={grid.key}>
                         {grid.rows?.map((row: any) =>
-                            <div
-                                className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
+                            <div key={row.key} className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
                                 {row.columns?.map((column: any) => (
-                                    <div
-                                        className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
+                                    <div className="flex-1 flex flex-col flex-nowrap justify-start vb:col" key={column.key}>
                                         {column.elements?.map((element: any) =>
-                                            <div
-                                                data-epi-block-id={element?.key}>
-                                                <CompositionNodeComponent
-                                                    compositionElementNode={element}/>
+                                            <div data-epi-block-id={element?.key} key={element?.key}>
+                                                <CompositionNodeComponent compositionElementNode={element}/>
                                             </div>
                                         )}
                                     </div>

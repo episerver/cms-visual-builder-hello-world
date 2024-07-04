@@ -170,11 +170,12 @@ export default ParagraphElementComponent
 Now we need the master component which will be responsible for rendering the layout (sections/row/columns):
 
 ```tsx
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 
 import { graphql } from '@/graphql'
 import CompositionNodeComponent from './CompositionNodeComponent'
+import { onContentSaved } from "@/helpers/onContentSaved";
 
 export const VisualBuilder = graphql(/* GraphQL */ `
 query VisualBuilder($key: String, $version: String) {
@@ -227,35 +228,46 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
         variables.key = key;
     }
 
-    const { data } = useQuery(VisualBuilder, { variables: variables })
+    const { data, refetch } = useQuery(VisualBuilder, { variables: variables });
+
+    useEffect(() => {
+        onContentSaved(_ => {
+            refetch();
+        })
+    }, []);
+
+    const experiences = data?._Experience?.items;
+    if (!experiences) {
+        return null;
+    }
+
+    const experience: any = experiences[experiences.length - 1];
+
+    if (!experience) {
+        return null;
+    }
 
     return (
         <div className="relative w-full flex-1 vb:outline">
-            {data?._Experience?.items?.map((experience: any) => (
-                <div className="relative w-full flex-1 vb:outline">
-                    {experience?.composition?.grids?.map((grid: any) =>
-                        <div className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
-                             data-epi-block-id={grid?.key}>
-                            {grid.rows?.map((row: any) =>
-                                <div
-                                    className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
-                                    {row.columns?.map((column: any) => (
-                                        <div
-                                            className="flex-1 flex flex-col flex-nowrap justify-start vb:col">
-                                            {column.elements?.map((element: any) =>
-                                                <div
-                                                    data-epi-block-id={element?.key}>
-                                                    <CompositionNodeComponent
-                                                        compositionElementNode={element}/>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>)}
-                        </div>
-                    )}
-                </div>
-            ))}
+            <div className="relative w-full flex-1 vb:outline">
+                {experience?.composition?.grids?.map((grid: any) =>
+                    <div key={grid.key} className="relative w-full flex flex-col flex-nowrap justify-start vb:grid"
+                         data-epi-block-id={grid.key}>
+                        {grid.rows?.map((row: any) =>
+                            <div key={row.key} className="flex-1 flex flex-row flex-nowrap justify-start vb:row">
+                                {row.columns?.map((column: any) => (
+                                    <div className="flex-1 flex flex-col flex-nowrap justify-start vb:col" key={column.key}>
+                                        {column.elements?.map((element: any) =>
+                                            <div data-epi-block-id={element?.key} key={element?.key}>
+                                                <CompositionNodeComponent compositionElementNode={element}/>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>)}
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
@@ -304,3 +316,18 @@ export default CompositionElementNodeComponent
 
 As you can see based on `element.__typename` we can use different components - in our
 example we will use `ParagraphElementComponent`.
+
+### Subscribing to content changes
+
+You need to subscribe to a special event in order to know once content has been updated.
+
+In this repo the subscription is already done in [onContentSaved.ts](src%2Fhelpers%2FonContentSaved.ts)
+
+```ts
+epi.subscribe("contentSaved", function (message: ContentSavedEventArgs) {
+    // your code here
+});
+```
+
+More details here:
+https://docs.developers.optimizely.com/content-management-system/v1.0.0-CMS-SaaS/docs/enable-live-preview#refresh-the-applications-view-when-content-has-changed

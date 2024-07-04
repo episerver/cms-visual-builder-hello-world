@@ -12,6 +12,20 @@ interface ContentSavedEventArgs {
     sectionId?: string;
 }
 
+export function getPreviewToken() {
+    if (typeof window !== "undefined" && window.location !== undefined) {
+        const queryString = window?.location?.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get('preview_token');
+    } else {
+        return undefined;
+    }
+}
+
+function isInEditMode() {
+    return !!getPreviewToken();
+}
+
 function ensureEpiLoaded() {
     if (typeof window !== "undefined") {
         const epi = (window as any).epi;
@@ -24,6 +38,10 @@ function ensureEpiLoaded() {
 }
 
 export function onContentSaved(callback: ((message: ContentSavedEventArgs) => void )) {
+    if (!isInEditMode()) {
+        return;
+    }
+    
     const epi = ensureEpiLoaded();
     if (epi) {
         console.info("successfully connected to CMS.");

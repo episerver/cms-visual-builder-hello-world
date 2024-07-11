@@ -324,9 +324,22 @@ You need to subscribe to a special event in order to know once content has been 
 In this repo the subscription is already done in [onContentSaved.ts](src%2Fhelpers%2FonContentSaved.ts)
 
 ```ts
-epi.subscribe("contentSaved", function (message: ContentSavedEventArgs) {
-    // your code here
+window.addEventListener("optimizely:cms:contentSaved", (event: any) => {
+	const message = event.detail as ContentSavedEventArgs;
 });
+```
+
+where is defined as following:
+
+```ts
+interface ContentSavedEventArgs {
+    contentLink: string;
+    previewUrl: string;
+    isIndexed: boolean;
+    properties: PropertySaved[];
+    parentId?: string;
+    sectionId?: string;
+}
 ```
 
 More details here:

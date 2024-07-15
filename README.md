@@ -1,5 +1,8 @@
 # Visual Builder Hello World example
 
+> [!NOTE]  
+> Please follow https://github.com/episerver/cms-saas-vercel-demo for general information about how to configure your CMS SaaS instance.
+
 ## How to use Visual Builder in CMS (SaaS)
 
 This repository contains a Hello World example of the Optimizely Visual Builder.

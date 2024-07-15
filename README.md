@@ -37,14 +37,17 @@ Type in the name and hit `Create Experience`.
 ![creating experience](docs/create_experience_dialog.png)
 
 If you would like to see the site preview in Edit Mode of your SaaS instance
-you will need to configure it in `Settings`.
+you will need to configure it in the `Applications` section of `Settings`.
 
-![websites list](docs/settings_sites.png)
+![applications list](docs/applications_list.png)
 
-Add a new website pointing to your local nextjs application running on `https://localhost:3000`.
+Add a new application website pointing to your local nextjs application running on `https://localhost:3000`.
 It should look like this:
 
-![adding new website](docs/settings_site.png)
+![adding new application](docs/applications_createnew.png)
+
+> [!NOTE]  
+> More info on `Applications` can be found here https://docs.developers.optimizely.com/content-management-system/v1.0.0-CMS-SaaS/docs/create-a-demo-site-using-cms-saas-and-netlify#cms-saas-ui-configuration
 
 Now go back to `Edit Mode` and to your `MyExperience`.
 Please add a new section, row, column and an element of `Paragraph Type`.

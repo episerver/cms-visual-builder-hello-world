@@ -3,7 +3,7 @@ import { graphql } from '@/graphql'
 
 export const ParagraphElementFragment = graphql(/* GraphQL */ `
     fragment paragraphElement on ParagraphElement {
-        Text {
+        text {
             html
         }
     }
@@ -14,7 +14,7 @@ const ParagraphElementComponent = (props: {
 }) => {
     const paragraphElement = useFragment(ParagraphElementFragment, props.paragraphElement)
     // @ts-ignore
-    return <div dangerouslySetInnerHTML={{ __html: paragraphElement.Text?.html }}></div>
+    return <div dangerouslySetInnerHTML={{ __html: paragraphElement.text?.html }}></div>
 }
 
 export default ParagraphElementComponent

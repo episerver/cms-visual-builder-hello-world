@@ -18,8 +18,8 @@ export default function Home() {
                 version = contentIdArray[contentIdArray.length - 1]
             }
         } else if (locationUrl.indexOf("/preview?key")) {
+            const url = new URL(locationUrl);
             try {
-                const url = new URL(locationUrl);
                 const urlKey = url.searchParams.get("key");
                 if (urlKey) {
                     key = urlKey;
@@ -27,12 +27,22 @@ export default function Home() {
             } catch {
                 key = undefined;   
             }
+            
+            try {
+                const urlVer = url.searchParams.get("ver");
+                if (urlVer) {
+                    version = urlVer;
+                }
+            } catch {
+                version = undefined;   
+            }
         }
     }
-
+    
     return (
         <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
-            <VisualBuilderComponent version={version} key={key} />
+            <VisualBuilderComponent version={version} contentKey={key}/>
         </main>
+        // </>
     );
 }

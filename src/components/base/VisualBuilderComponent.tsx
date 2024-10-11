@@ -56,11 +56,18 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ version, contentKey })
         variables.key = contentKey;
     }
 
-    const { data, refetch } = useQuery(VisualBuilder, { variables: variables });
+    const { data, refetch } = useQuery(VisualBuilder, { 
+      variables: variables,
+      notifyOnNetworkStatusChange: true, });
 
     useEffect(() => {
         onContentSaved(_ => {
-            refetch();
+          const contentIdArray = _.contentLink.split('_')
+          if (contentIdArray.length > 1) {
+              version = contentIdArray[contentIdArray.length - 1]
+              variables.version = version;
+          }
+          refetch(variables);
         })
     }, []);
 

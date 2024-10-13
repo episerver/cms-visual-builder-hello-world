@@ -62,6 +62,7 @@ export type BlankExperienceOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
   composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
@@ -130,6 +131,7 @@ export type BlankSectionOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
   composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
@@ -359,6 +361,7 @@ export type CompositionStructureNodeWhereInput = {
 
 export type ContentMetadata = IContentMetadata & {
   __typename?: 'ContentMetadata';
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   lastModified?: Maybe<Scalars['DateTime']['output']>;
@@ -514,6 +517,7 @@ export type DataOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type DataOutput = {
@@ -554,6 +558,8 @@ export enum DateFacetUnit {
 export type DateFilterInput = {
   /** `boost` influences the weight of a field by boosting a match with a number (default: 1) — counts more towards the eventual relevance score which can be projected with `_score` — at query time. Note that `boost` cannot be a negative number. */
   boost?: InputMaybe<Scalars['Int']['input']>;
+  /** `decay` influences the weight of the score with a decay function. For example, results that have a more recent datetime will be ranked higher. The `origin` will be `now()` in case not specified. The `scale` is by default 10. The `rate` must be in the range `[0..1]`. */
+  decay?: InputMaybe<Decay>;
   /** `eq` matches on an exact value, but the value is case-insensitive. */
   eq?: InputMaybe<Scalars['Date']['input']>;
   /** `exist` matches results that have this field. */
@@ -568,6 +574,13 @@ export type DateFilterInput = {
   lte?: InputMaybe<Scalars['Date']['input']>;
   /** `not_eq` retrieves results not matching with an exact (but case-insensitive) value. */
   notEq?: InputMaybe<Scalars['Date']['input']>;
+};
+
+/** Decay influences the weight of the score based on field values with a decay function */
+export type Decay = {
+  origin?: InputMaybe<Scalars['String']['input']>;
+  rate?: InputMaybe<Scalars['Float']['input']>;
+  scale?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type GenericMedia = IData & _IContent & _IMedia & {
@@ -608,6 +621,7 @@ export type GenericMediaOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type GenericMediaOutput = {
@@ -778,6 +792,7 @@ export type ICompositionStructureNode = {
 };
 
 export type IContentMetadata = {
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   lastModified?: Maybe<Scalars['DateTime']['output']>;
@@ -836,6 +851,7 @@ export type IContentMetadataAutocompleteVersionArgs = {
 
 export type IContentMetadataFacet = {
   __typename?: 'IContentMetadataFacet';
+  created?: Maybe<Array<Maybe<DateFacet>>>;
   displayName?: Maybe<Array<Maybe<StringFacet>>>;
   key?: Maybe<Array<Maybe<StringFacet>>>;
   lastModified?: Maybe<Array<Maybe<DateFacet>>>;
@@ -845,6 +861,12 @@ export type IContentMetadataFacet = {
   types?: Maybe<Array<Maybe<StringFacet>>>;
   url?: Maybe<ContentUrlFacet>;
   version?: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type IContentMetadataFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -908,6 +930,7 @@ export type IContentMetadataFacetVersionArgs = {
 };
 
 export type IContentMetadataOrderByInput = {
+  created?: InputMaybe<OrderBy>;
   displayName?: InputMaybe<OrderBy>;
   key?: InputMaybe<OrderBy>;
   lastModified?: InputMaybe<OrderBy>;
@@ -920,6 +943,7 @@ export type IContentMetadataOrderByInput = {
 };
 
 export type IContentMetadataWhereInput = {
+  created?: InputMaybe<DateFilterInput>;
   displayName?: InputMaybe<SearchableStringFilterInput>;
   key?: InputMaybe<StringFilterInput>;
   lastModified?: InputMaybe<DateFilterInput>;
@@ -979,6 +1003,7 @@ export type IInstanceMetadataDisplayNameArgs = {
 };
 
 export type IItemMetadata = {
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   displayOption?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
@@ -1068,6 +1093,7 @@ export type ImageMediaOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type ImageMediaOutput = {
@@ -1122,6 +1148,7 @@ export type InstanceMetadataDisplayNameArgs = {
 
 export type ItemMetadata = IContentMetadata & IItemMetadata & {
   __typename?: 'ItemMetadata';
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   displayOption?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
@@ -1214,7 +1241,6 @@ export type ParagraphElement = IData & _IComponent & _IContent & _IElement & {
   _metadata?: Maybe<IContentMetadata>;
   _modified?: Maybe<Scalars['Date']['output']>;
   _score?: Maybe<Scalars['Float']['output']>;
-  html?: Maybe<RichText>;
 };
 
 
@@ -1231,14 +1257,12 @@ export type ParagraphElementAutocomplete = {
   __typename?: 'ParagraphElementAutocomplete';
   Text?: Maybe<RichTextAutocomplete>;
   _metadata?: Maybe<IContentMetadataAutocomplete>;
-  html?: Maybe<RichTextAutocomplete>;
 };
 
 export type ParagraphElementFacet = {
   __typename?: 'ParagraphElementFacet';
   Text?: Maybe<RichTextFacet>;
   _metadata?: Maybe<IContentMetadataFacet>;
-  html?: Maybe<RichTextFacet>;
 };
 
 export type ParagraphElementOrderByInput = {
@@ -1247,7 +1271,7 @@ export type ParagraphElementOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
-  html?: InputMaybe<RichTextOrderByInput>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type ParagraphElementOutput = {
@@ -1272,7 +1296,6 @@ export type ParagraphElementWhereInput = {
   _modified?: InputMaybe<DateFilterInput>;
   _not?: InputMaybe<Array<InputMaybe<ParagraphElementWhereInput>>>;
   _or?: InputMaybe<Array<InputMaybe<ParagraphElementWhereInput>>>;
-  html?: InputMaybe<RichTextWhereInput>;
 };
 
 export type Query = {
@@ -1863,6 +1886,7 @@ export type SysContentFolderOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type SysContentFolderOutput = {
@@ -1926,6 +1950,7 @@ export type VideoMediaOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type VideoMediaOutput = {
@@ -1989,6 +2014,7 @@ export type _ComponentOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _ComponentOutput = {
@@ -2052,6 +2078,7 @@ export type _ContentOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _ContentOutput = {
@@ -2115,6 +2142,7 @@ export type _ElementOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _ElementOutput = {
@@ -2181,6 +2209,7 @@ export type _ExperienceOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
   composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
@@ -2246,6 +2275,7 @@ export type _FolderOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _FolderOutput = {
@@ -2531,6 +2561,7 @@ export type _ImageOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _ImageOutput = {
@@ -2594,6 +2625,7 @@ export type _MediaOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _MediaOutput = {
@@ -2657,6 +2689,7 @@ export type _PageOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _PageOutput = {
@@ -2723,6 +2756,7 @@ export type _SectionOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
   composition?: InputMaybe<CompositionStructureNodeOrderByInput>;
 };
 
@@ -2788,6 +2822,7 @@ export type _VideoOrderByInput = {
   _minimumScore?: InputMaybe<Scalars['Float']['input']>;
   _modified?: InputMaybe<OrderBy>;
   _ranking?: InputMaybe<Ranking>;
+  _semanticWeight?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type _VideoOutput = {

@@ -106,7 +106,7 @@ export default config
 
 We now need to add a new script to package.json
 
-> "codegen": "graphql-codegen --watch"
+> "codegen": "graphql-codegen"
 
 This script will generate types based your graphql schema.
 

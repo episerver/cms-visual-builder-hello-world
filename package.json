@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "codegen": "graphql-codegen --watch",
+    "codegen": "graphql-codegen",
     "dev": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",

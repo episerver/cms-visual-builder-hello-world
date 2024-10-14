@@ -42,25 +42,32 @@ query VisualBuilder($key: String, $version: String) {
 `)
 
 interface VisualBuilderProps {
-    key?: string;
-    version?: string;
+  contentKey?: string;
+  version?: string;
 }
 
-const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
+const VisualBuilderComponent: FC<VisualBuilderProps> = ({ version, contentKey }) => {
     const variables: Record<string, unknown> = {};
     if (version) {
         variables.version = version;
     }
 
-    if (key) {
-        variables.key = key;
+    if (contentKey) {
+        variables.key = contentKey;
     }
 
-    const { data, refetch } = useQuery(VisualBuilder, { variables: variables });
+    const { data, refetch } = useQuery(VisualBuilder, { 
+      variables: variables,
+      notifyOnNetworkStatusChange: true, });
 
     useEffect(() => {
         onContentSaved(_ => {
-            refetch();
+          const contentIdArray = _.contentLink.split('_')
+          if (contentIdArray.length > 1) {
+              version = contentIdArray[contentIdArray.length - 1]
+              variables.version = version;
+          }
+          refetch(variables);
         })
     }, []);
 

@@ -1,12 +1,31 @@
-import "@/styles/globals.css";
 import { ApolloProvider } from "@apollo/client";
+import { HeaderTemplate } from "@components/layout/header";
+import { Loader } from "@components/utility/loader/loader";
+import { GlobalProvider, useGlobalContext } from "@context";
 import type { AppProps } from "next/app";
-import client from '../apolloClient';
+import { client } from "../client";
+import "../styles/globals.css";
+import Script from "next/script";
 
-export default function App({ Component, pageProps }: AppProps) {
+const Main: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const { isLoading } = useGlobalContext();
   return (
-    <ApolloProvider client={client!}>
+    <>
+      {isLoading && <Loader global={true} />}
+      <HeaderTemplate />
       <Component {...pageProps} />
+      {/* <FooterTemplate /> */}
+    </>
+  );
+};
+
+export default function App(props: AppProps) {
+  return (
+    <ApolloProvider client={client}>
+      <GlobalProvider>
+        <Script src={client.communicationInjector} strategy="afterInteractive" />
+        <Main {...props} />
+      </GlobalProvider>
     </ApolloProvider>
   );
 }

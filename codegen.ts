@@ -6,14 +6,22 @@ loadEnvConfig(process.cwd());
 const graphUrl = process.env.GRAPH_URL
 const graphSingleKey = process.env.GRAPH_SINGLE_KEY
 
-const config : CodegenConfig = {
+const config: CodegenConfig = {
     schema: `https://${graphUrl}/content/v2?auth=${graphSingleKey}`,
-    documents: ["src/**/*.{ts,tsx}"],
+    documents: [
+        "src/**/*.{ts,tsx}",
+    ],
     ignoreNoDocuments: true,
     generates: {
-        './src/graphql/': {
+        './src/graphql/generated/': {
             preset: 'client',
-            plugins: [],
+            // presetConfig: {
+            //     fragmentMasking: false
+            // },
+            plugins: [
+                "typescript",
+                "typescript-operations",
+            ],
         }
     }
 }

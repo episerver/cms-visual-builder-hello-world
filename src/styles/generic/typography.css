@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Figtree';
+    font-weight: 125 950;
+    font-display: swap;
+    font-kerning: normal;
+    src: url("/assets/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+}
+
+:root,
+::after,
+::before {
+    --font-family-base: 'Figtree', sans-serif;
+    --font-family-mono: 'NBI Pro Mono', Arial, sans-serif;
+    /* These space variables are used in conjunction with fluid type styles to keep spacing consistent. */
+    /* Space 3xs: 4px → 4px */
+    --space-3xs: 0.4rem;
+    /* Space 2xs: 7px → 8px */
+    --space-2xs: clamp(0.7rem, 0.104vw + 0.667rem, 0.8rem);
+    /* Space xs: 11px → 12px */
+    --space-xs: clamp(1.1rem, 0.104vw + 1.067rem, 1.2rem);
+    /* Space s: 14px → 16px */
+    --space-s: clamp(1.4rem, 0.208vw + 1.333rem, 1.6rem);
+    /* Space m: 21px → 24px */
+    --space-m: clamp(2.1rem, 0.313vw + 2rem, 2.4rem);
+    /* Space l: 28px → 32px */
+    --space-l: clamp(2.8rem, 0.417vw + 2.667rem, 3.2rem);
+    /* Space xl: 35px → 40px */
+    --space-xl: clamp(3.5rem, 0.521vw + 3.333rem, 4rem);
+    /* Space 2xl: 53px → 60px */
+    --space-2xl: clamp(5.3rem, 0.729vw + 5.067rem, 6rem);
+
+    --font-size-base: 1.6rem;
+    --font-size-body-1: 1.4rem;
+    --font-size-body-2: var(--font-size-base);
+    --font-size-body-3: 1.8rem;
+
+    --font-size-overline: 1.2rem;
+
+    --font-size-h6: 1.6rem;
+
+    --font-size-h5: 2rem;
+
+    --font-size-subtitle: clamp(2rem, 0.417vw + 1.867rem, 2.4rem);
+
+    --font-size-h4: clamp(2rem, 0.417vw + 1.867rem, 2.4rem);
+
+    --font-size-h3: clamp(2.4rem, 0.625vw + 2.2rem, 3rem);
+
+    --font-size-h2: clamp(3rem, 0.625vw + 2.8rem, 3.6rem);
+
+    --font-size-h1: clamp(3.6rem, 1.25vw + 3.2rem, 4.8rem);
+
+    --font-size-d3: clamp(4.8rem, 1.25vw + 4.4rem, 6rem);
+
+    --font-size-d2: clamp(6rem, 1.25vw + 5.6rem, 7.2rem);
+
+    --font-size-d1: clamp(7.2rem, 2.5vw + 6.4rem, 9.6rem);
+    --font-weight-extra-bold: 800;
+    --font-weight-bold: 620;
+    --font-weight-semi-bold: 600;
+    --font-weight-medium: 450;
+    --font-weight-regular: 400;
+    --font-weight-light: 350;
+
+    --text-gradient: radial-gradient(100% 741.05% at 100% 77.78%,
+            var(--green, #3be081) 0%,
+            var(--light-blue, #00ccff) 100%);
+}
+
+body a {
+    color: var(--color-link-body);
+    text-decoration: none;
+}
+
+p {
+    font-size: var(--font-size-body-2);
+    font-weight: var(--font-weight-light);
+    line-height: 1.7778;
+    max-width: 780px;
+}
+
+.display-1 {
+    font-size: var(--font-size-d1);
+    font-weight: var(--font-weight-bold);
+    line-height: clamp(8rem, 2.917vw + 7.067rem, 10.8rem);
+}
+
+.display-2 {
+    font-size: var(--font-size-d2);
+    font-weight: var(--font-weight-bold);
+    line-height: clamp(6.8rem, 1.25vw + 6.4rem, 8rem);
+}
+
+.display-3 {
+    font-size: var(--font-size-d3);
+    font-weight: var(--font-weight-bold);
+    line-height: clamp(5.2rem, 1.667vw + 4.667rem, 6.8rem);
+}
+
+.heading-1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: clamp(5.2rem, 4.64348rem + 1.7391vi, 6.8rem);
+}
+
+.heading-2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-medium);
+    line-height: clamp(4rem, 3.58261rem + 1.3043vi, 5.2rem);
+}
+
+.heading-3 {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-medium);
+    line-height: clamp(3.6rem, 3.46087rem + 0.4348vi, 4rem);
+}
+
+.heading-4 {
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-medium);
+    line-height: clamp(3rem, 2.7913rem + 0.6522vi, 3.6rem);
+}
+
+.heading-5 {
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-medium);
+    line-height: clamp(2.8rem, 2.73043rem + 0.2174vi, 3rem);
+}
+
+.heading-6 {
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-medium);
+    line-height: 2.8rem;
+}
+
+.theme--purple,
+.theme--purple::after,
+.theme--purple::before {
+    --text-gradient: linear-gradient(135deg, #b677ff -1.41%, var(--purple, #861dff) 82.14%);
+}
+
+.theme--green,
+.theme--green::after,
+.theme--green::before {
+    --text-gradient: linear-gradient(135deg, #3be081 -1.41%, var(--green-80-shade, #2fb367) 82.14%);
+}
+
+.theme--orange,
+.theme--orange::after,
+.theme--orange::before {
+    --text-gradient: linear-gradient(135deg, #ffce00 -1.41%, var(--orange, #ff8110) 82.14%);
+}
+
+.text-overline {
+    display: block;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-overline);
+    font-weight: var(--font-weight-regular);
+    line-height: 2rem;
+    color: var(--color-overline);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.text-overline[href] {
+    --color-link-body: var(--color-overline);
+    --color-link-body-hover: var(--color-overline);
+}
+
+.text-subtitle {
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--font-weight-light);
+    line-height: clamp(2.8rem, .208vw + 2.733rem, 3rem);
+    color: var(--color-subtitle);
+}

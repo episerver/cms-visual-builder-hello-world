@@ -1,0 +1,38 @@
+import { graphql } from "@graphql";
+
+export const ExperienceQuery = graphql(/* GraphQL */ `
+  query GetExperience($key: String, $version: String, $locale: String, $url: String) {
+    content: _Experience(
+      where: { _metadata: { url: { default: { eq: $url } }, key: { eq: $key }, version: { eq: $version }, locale: { eq: $locale } } }
+    ) {
+      items {
+        metadata: _metadata {
+          key
+          version
+          locale
+          displayName
+          url {
+            default
+          }
+          published
+          status
+          created
+          lastModified
+        }
+        composition {
+          key
+          displayName
+          displayTemplateKey
+          displaySettings {
+            key
+            value
+          }
+          sections: nodes {
+            key
+            ...SectionNode
+          }
+        }
+      }
+    }
+  }
+`);

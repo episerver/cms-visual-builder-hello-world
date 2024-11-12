@@ -1,0 +1,11 @@
+.mobile-nav {
+    @apply lg:hidden overflow-hidden absolute top-16 z-50 h-[calc(100dvh-6.4rem)] left-0 right-0 bg-opacity-90 bg-gradient-to-b from-vulcan to-vulcan-95 backdrop-blur-sm transition-opacity duration-300 ease-in-out;
+}
+
+.mobile-nav__closed {
+    @apply opacity-0 pointer-events-none;
+}
+
+.mobile-nav__open {
+    @apply opacity-100;
+}

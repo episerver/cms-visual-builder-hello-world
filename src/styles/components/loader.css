@@ -1,0 +1,85 @@
+.loading {
+    cursor: initial;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: var(--vulcan-85);
+    position: absolute;
+    z-index: 100;
+}
+
+.loading__global {
+    position: fixed;
+    z-index: 9999;
+}
+
+.loading__translucent {
+    background: rgba(44, 49, 63, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.loading .circle {
+    position: relative;
+
+    display: inline-flex;
+
+    width: 12px;
+    height: 12px;
+    margin: 0 0.25rem;
+    padding: 0;
+
+    background: red;
+    border-radius: 100%;
+}
+
+.loading .circle:nth-child(1) {
+    transform: scale(0.6);
+    background-color: #999eff;
+    animation: scaleFirstCircle 0.5s 0s linear infinite alternate;
+}
+
+.loading .circle:nth-child(2) {
+    transform: scale(0.6);
+    background-color: #cbceff;
+    animation: scaleSecondCircle 0.5s 0.25s linear infinite alternate;
+}
+
+.loading .circle:nth-child(3) {
+    transform: scale(0.6);
+    background-color: #ffffff;
+    animation: scaleThirdCircle 0.5s 0.5s linear infinite alternate;
+}
+
+@keyframes scaleFirstCircle {
+    0% {
+        transform: scale(0.6);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleSecondCircle {
+    0% {
+        transform: scale(0.6);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleThirdCircle {
+    0% {
+        transform: scale(0.6);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

@@ -17,7 +17,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ items }) => 
   return (
     <nav className="lg:hidden">
       <div className={`outer-padding relative z-50 ${isMenuOpen ? "bg-vulcan" : ""}`}>
-        <div className="container-fluid">
+        <div className="container-full">
           <div className="flex justify-between min-h-16 items-center">
             <a href="#skipNav" className="sr-only !absolute left-0 top-0 p-6 focus:not-sr-only">
               Skip to main content

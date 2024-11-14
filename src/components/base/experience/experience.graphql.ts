@@ -1,9 +1,17 @@
 import { graphql } from "@graphql";
 
 export const ExperienceQuery = graphql(/* GraphQL */ `
-  query GetExperience($key: String, $version: String, $locale: String, $url: String) {
+  query GetExperience($key: String, $version: String, $locale: String, $url: String, $status: String) {
     content: _Experience(
-      where: { _metadata: { url: { default: { eq: $url } }, key: { eq: $key }, version: { eq: $version }, locale: { eq: $locale } } }
+      where: {
+        _metadata: {
+          url: { default: { eq: $url } }
+          status: { eq: $status }
+          key: { eq: $key }
+          version: { eq: $version }
+          locale: { eq: $locale }
+        }
+      }
     ) {
       items {
         metadata: _metadata {

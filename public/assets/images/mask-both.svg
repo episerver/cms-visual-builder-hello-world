@@ -1,0 +1,26 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	<symbol id="mask-top" y="0" x="0" viewBox="0 0 1399.86 90" preserveAspectRatio="xMidYMin">
+		<path 
+			d="m17.05,5.51h0c217.38,55.68,445.63,85.33,681,85.33s464.13-29.72,681.74-85.52l.05-.02c6.66-1.79,13.33-3.55,20.01-5.29H0v.98c5.69,1.49,11.37,3,17.05,4.53Z" 
+			fill="black" 
+			fill-rule="evenodd"
+		/>
+	</symbol>
+	<symbol id="mask-bottom" y="0" x="0" viewBox="0 0 1399.86 90" preserveAspectRatio="xMidYMax">
+		<path 
+			d="m17.05,5.51h0c217.38,55.68,445.63,85.33,681,85.33s464.13-29.72,681.74-85.52l.05-.02c6.66-1.79,13.33-3.55,20.01-5.29H0v.98c5.69,1.49,11.37,3,17.05,4.53Z" 
+			fill="black" 
+			fill-rule="evenodd"
+			style="transform-origin: center; transform: scaley(-1)"
+		/>
+	</symbol>
+	<use 
+	     xlink:href="#mask-top" 
+	     width="100%"
+	/> 
+	<use 
+	     xlink:href="#mask-bottom" 
+	     width="100%"
+	/> 
+</svg>

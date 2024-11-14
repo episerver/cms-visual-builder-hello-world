@@ -1,0 +1,10 @@
+.quote {
+  @apply rounded p-px hover:shadow-card-hover focus:shadow-card-hover w-full;
+}
+
+.quote-inner {
+  @apply bg-vulcan-95 rounded;
+}
+.quote-inner__content {
+  @apply text-white rounded p-8;
+}

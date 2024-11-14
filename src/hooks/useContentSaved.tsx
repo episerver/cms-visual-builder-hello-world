@@ -12,12 +12,21 @@ export const useContentSaved = (callback: (message: ContentSavedEventArgs) => an
     (event: any) => {
       const message = event.detail as ContentSavedEventArgs;
 
-      if (message?.previewToken) {
-        // const newUrl = new URL(message.previewUrl);
-        const cl = client as OptimizelyIntegrationClient;
-        if (cl.refresh) {
-          cl.refresh(message.previewToken);
+      try {
+        const newPreviewUrl = message.previewUrl;
+        const urlParams = new URLSearchParams(newPreviewUrl);
+        const newPreviewToken = urlParams.get("preview_token");
+
+        if (newPreviewToken) {
+          // const newUrl = new URL(message.previewUrl);
+          const cl = client as OptimizelyIntegrationClient;
+          if (cl.refresh) {
+            cl.refresh(newPreviewToken);
+          }
         }
+      } catch {
+        // noop
+        console.error("Error refreshing preview token.");
       }
 
       callback(message);

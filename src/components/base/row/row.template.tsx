@@ -1,5 +1,7 @@
-import { ColumnNodeFragment, RowNodeFragment } from "@graphql/graphql";
+import { ColumnNodeFragment, CompositionDisplaySetting, RowNodeFragment } from "@graphql/graphql";
+import { useMemo } from "react";
 import { ColumnTemplate } from "../column/column.template";
+import { GetRowStyles } from "./row.style";
 
 export interface RowTemplateProps {
   row: RowNodeFragment;
@@ -10,10 +12,16 @@ export const RowTemplate: React.FC<RowTemplateProps> = ({ row }) => {
     return null;
   }
 
+  const classes = useMemo(() => {
+    return GetRowStyles(row.displaySettings as CompositionDisplaySetting[]);
+  }, [row]);
+
   return (
     <>
-      <div className="row border border-dashed border-optimizely-blue g-1">
-        {row.columns?.map((column) => column && <ColumnTemplate column={column as ColumnNodeFragment} key={column.key} />)}
+      <div className={classes}>
+        {row.columns?.map(
+          (column, ind) => column && <ColumnTemplate column={column as ColumnNodeFragment} key={column.key} />
+        )}
       </div>
     </>
   );

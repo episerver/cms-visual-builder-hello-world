@@ -2,29 +2,28 @@ import {
   ButtonElementComponent,
   HeadingElementComponent,
   ImageElementComponent,
-  ImpactHighlightElementComponent,
+  ListItemElementComponent,
+  OverlineElementComponent,
   ParagraphElementComponent,
-  ProductNameElementComponent,
   QuoteElementComponent,
+  StatsElementComponent,
   TileElementComponent,
   VideoElementComponent,
 } from "@components/elements";
-import { CompositionDisplaySetting } from "@graphql/graphql";
+import { ElementProps } from "@components/elements/element.types";
 
 export class ElementLocator {
-  private static readonly components: Record<
-    string,
-    React.FC<{ element: any; displayTemplateKey?: string | null; displaySettings?: CompositionDisplaySetting[] }>
-  > = {
+  private static readonly components: Record<string, React.FC<ElementProps<any>>> = {
     ButtonElement: ButtonElementComponent,
     HeadingElement: HeadingElementComponent,
     ImageElement: ImageElementComponent,
-    ImpactHighlightElement: ImpactHighlightElementComponent,
+    StatsElement: StatsElementComponent,
     ParagraphElement: ParagraphElementComponent,
-    ProductNameElement: ProductNameElementComponent,
+    OverlineElement: OverlineElementComponent,
     QuoteElement: QuoteElementComponent,
     TileElement: TileElementComponent,
     VideoElement: VideoElementComponent,
+    ListItemElement: ListItemElementComponent,
   };
 
   public static get(type?: string | null) {

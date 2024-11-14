@@ -76,7 +76,6 @@ p {
     font-size: var(--font-size-body-2);
     font-weight: var(--font-weight-light);
     line-height: 1.7778;
-    max-width: 780px;
 }
 
 .display-1 {
@@ -133,32 +132,44 @@ p {
     line-height: 2.8rem;
 }
 
+.text-theme-color-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.theme--blue,
+.theme--blue::after,
+.theme--blue::before {
+    --text-gradient: linear-gradient(135deg, var(--optimizely-blue-60-tint, #6687ff) -1.41%, var(--optimizely-blue, #0037ff) 82.14%);
+}
+
 .theme--purple,
 .theme--purple::after,
 .theme--purple::before {
-    --text-gradient: linear-gradient(135deg, #b677ff -1.41%, var(--purple, #861dff) 82.14%);
+    --text-gradient: linear-gradient(135deg, var(--purple-60-tint, #b677ff) -1.41%, var(--purple, #861dff) 82.14%);
 }
 
 .theme--green,
 .theme--green::after,
 .theme--green::before {
-    --text-gradient: linear-gradient(135deg, #3be081 -1.41%, var(--green-80-shade, #2fb367) 82.14%);
+    --text-gradient: linear-gradient(135deg, var(--green-60-tint, #3be081) -1.41%, var(--green-80-shade, #2fb367) 82.14%);
 }
 
 .theme--orange,
 .theme--orange::after,
 .theme--orange::before {
-    --text-gradient: linear-gradient(135deg, #ffce00 -1.41%, var(--orange, #ff8110) 82.14%);
+    --text-gradient: linear-gradient(135deg, var(--yellow, #ffce00) -1.41%, var(--orange, #ff8110) 82.14%);
 }
 
 .text-overline {
-    display: block;
+    @apply flex items-center uppercase w-full;
     font-family: var(--font-family-mono);
     font-size: var(--font-size-overline);
     font-weight: var(--font-weight-regular);
     line-height: 2rem;
     color: var(--color-overline);
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 

@@ -14,13 +14,14 @@ export const ElementFragment = graphql(/* GraphQL */ `
     element {
       ...ButtonFragment
       ...HeadingFragment
-      ...ImageFragment
-      ...ImpactHighlightFragment
+      ...StatsFragment
       ...ParagraphFragment
-      ...ProductNameFragment
+      ...OverlineFragment
       ...QuoteFragment
       ...TileFragment
+      ...ImageFragment
       ...VideoFragment
+      ...ListItemFragment
     }
   }
 `);

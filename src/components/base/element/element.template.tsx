@@ -2,7 +2,7 @@ import { CompositionDisplaySetting, ElementNodeFragment } from "@graphql/graphql
 import { ElementLocator } from "./element.mapper";
 
 export interface ElementTemplateProps {
-  element: ElementNodeFragment;
+  element?: ElementNodeFragment;
 }
 
 export const ElementTemplate: React.FC<ElementTemplateProps> = ({ element }) => {
@@ -19,6 +19,7 @@ export const ElementTemplate: React.FC<ElementTemplateProps> = ({ element }) => 
   return (
     <ElementComponent
       element={element.element}
+      elementKey={element.key}
       displayTemplateKey={element.displayTemplateKey}
       displaySettings={element.displaySettings as CompositionDisplaySetting[]}
     />

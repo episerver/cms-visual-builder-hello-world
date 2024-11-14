@@ -1,0 +1,32 @@
+.list-arrow-item {
+  @apply flex items-center w-full;
+}
+.list-arrow-item:before {
+  @apply left-0 w-[1.6rem] h-[1.6rem] block relative mr-2;
+  content: "";
+  background-image: url("/assets/images/list-arrow-blue.svg");
+}
+
+.theme--blue .list-arrow-item:before,
+.theme--blue.opti-container .list-arrow-item:before {
+  background-image: url("/assets/images/list-arrow-blue.svg");
+}
+
+.theme--green .list-arrow-item:before,
+.theme--green.opti-container .list-arrow-item:before {
+  background-image: url("/assets/images/list-arrow-green.svg");
+}
+
+.theme--purple .list-arrow-item:before,
+.theme--purple.opti-container .list-arrow-item:before {
+  background-image: url("/assets/images/list-arrow-purple.svg");
+}
+
+.theme--orange .list-arrow-item:before,
+.theme--orange.opti-container .list-arrow-item:before {
+  background-image: url("/assets/images/list-arrow-orange.svg");
+}
+
+.list-arrow-item a {
+  vertical-align: top !important;
+}

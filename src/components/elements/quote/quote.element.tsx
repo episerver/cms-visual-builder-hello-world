@@ -1,35 +1,43 @@
-import { QuoteFragmentFragment, CompositionDisplaySetting } from "@graphql/graphql";
-import { memo } from "react";
+import { IconTemplate } from "@components/base/icon";
+import { QuoteFragmentFragment } from "@graphql/graphql";
+import { useMemo } from "react";
+import { GetQuoteStyles } from "./quote.style";
+import { ElementProps } from "../element.types";
 
-export interface QuoteElementProps {
-  element: QuoteFragmentFragment;
-  displaySettings?: CompositionDisplaySetting[];
-  displayTemplateKey?: string | null;
-}
+export interface QuoteElementProps extends ElementProps<QuoteFragmentFragment> {}
 
-export const QuoteElementComponent: React.FC<QuoteElementProps> = memo(
-  ({ element }) => {
-    if (!element) {
-      return null;
-    }
-
-    const { Quote, QuoteBrandName, QuoteLogo } = element;
-
-    return (
-      <>
-        <div>{QuoteLogo?.url?.default}</div>
-        <h1 className="text-2xl">{Quote}</h1>
-        <p className="text-lg">{QuoteBrandName}</p>
-      </>
-    );
-  },
-  (prevProps, nextProps) => {
-    const prev = prevProps.element;
-    const next = nextProps.element;
-    return (
-      prev.Quote === next.Quote &&
-      prev.QuoteBrandName === next.QuoteBrandName &&
-      prev.QuoteLogo?.url?.default === next.QuoteLogo?.url?.default
-    );
+export const QuoteElementComponent: React.FC<QuoteElementProps> = ({ element, elementKey, displaySettings, displayTemplateKey }) => {
+  if (!element) {
+    return null;
   }
-);
+  const classes = useMemo(() => {
+    return GetQuoteStyles(displaySettings);
+  }, [displaySettings]);
+
+  const { Quote, QuoteBrandName, QuoteLogo } = element;
+
+  return (
+    <>
+      <article className={classes.quote} data-epi-block-id={elementKey}>
+        <div className={classes.quoteInner}>
+          <div className={classes.quoteInnerContent}>
+            <div className={classes.quoteIcon}>
+              <IconTemplate icon="quote" />
+            </div>
+            <p className="my-6">{Quote}</p>
+            <div className="flex flex-row">
+              <div className="flex flex-col">
+                <p className="text-sm font-medium">{QuoteBrandName}</p>
+                {QuoteLogo?.url?.default && (
+                  <div>
+                    <img className="max-w-[125px] h-[30px] mt-3" src={QuoteLogo?.url?.default} alt={"Logo"} />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </>
+  );
+};

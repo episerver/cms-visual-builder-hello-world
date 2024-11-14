@@ -1,9 +1,55 @@
 import type { Config } from "tailwindcss";
 import gridPlugin from "./tailwind/plugins/grid.plugin";
+import containerPlugin from "./tailwind/plugins/container.plugin";
 import baseFontSizePlugin from "tailwindcss-base-font-size";
 
 const config: Config = {
-  content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./src/**/*.style.ts"],
+  safelist: [
+    // Custom CSS classes
+    "opti-row",
+    "opti-col",
+    "justify-stretch-children",
+    {
+      pattern: /^text-.+/,
+    },
+    // Background color utilities
+    {
+      pattern: /^bg-.+/,
+    },
+    // Font utilities
+    {
+      pattern: /^font-.+/,
+    },
+    // Width and Height utilities
+    {
+      pattern: /^(w|h)-.+/,
+    },
+    // Margin utilities
+    {
+      pattern: /^(m|mx|my|mt|mr|mb|ml)-.+/,
+    },
+    // Padding utilities
+    {
+      pattern: /^(p|px|py|pt|pr|pb|pl)-.+/,
+    },
+    // Gap utilities
+    {
+      pattern: /^gap-.+/,
+    },
+    // Flex utilities (flex, flex-grow, flex-shrink, and flex-basis)
+    {
+      pattern: /^(flex|flex-).+/,
+    },
+    // Flex direction utilities
+    {
+      pattern: /^(justify|items)-.+/,
+    },
+    // Container utilities
+    {
+      pattern: /^(container|container-narrow|container-slim|container-full)$/,
+    },
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -78,9 +124,12 @@ const config: Config = {
         "gradient-border-orange": "radial-gradient(36.22% 9.25% at 50% 0%, rgba(255, 129, 16) 0%, #434343)",
         "gradient-hero-background":
           "linear-gradient(180deg, #10141d 55.03%, #191e28 100%), radial-gradient(17.88% 49.57% at 32.13% 100%, #10141d 34.26%, #303542 99.94%), radial-gradient(21.21% 58.79% at 50.01% 100%, #303542 0.25%, #10141d 97.49%), radial-gradient(10.56% 29.27% at 50.01% 100%, #404656 0.25%, #10141d 97.49%)",
+        "gradient-highlight":
+          "radial-gradient( 300px 100.04% at 50% 0%, rgba(0, 55, 255, 0.3) 0%, rgba(80, 17, 153, 0) 100% ), linear-gradient( 180deg, var(--vulcan) 0%, #0e1122 35.54%, var(--vulcan) 100% )",
       },
     },
     container: {
+      center: true,
       screens: {
         sm: "576px",
         md: "768px",
@@ -204,9 +253,10 @@ const config: Config = {
   },
   plugins: [
     gridPlugin,
+    containerPlugin,
     baseFontSizePlugin({
       baseFontSize: 10,
-    })
+    }),
   ],
 };
 export default config;

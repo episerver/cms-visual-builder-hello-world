@@ -1,30 +1,34 @@
 import { CompositionDisplaySetting, ParagraphFragmentFragment } from "@graphql/graphql";
-import { memo } from "react";
+import clsx from "clsx";
+import { memo, useMemo } from "react";
+import { GetParagraphStyles } from "./paragraph.style";
+import { ElementProps } from "../element.types";
 
-export interface ParagraphElementProps {
-  element: ParagraphFragmentFragment;
-  displaySettings?: CompositionDisplaySetting[];
-  displayTemplateKey?: string | null;
-}
+export interface ParagraphElementProps extends ElementProps<ParagraphFragmentFragment> {}
 
-export const ParagraphElementComponent: React.FC<ParagraphElementProps> = memo(
-  ({ element }) => {
-    if (!element) {
-      return null;
-    }
-
-    const { ParagraphElementText } = element;
-
-    return (
-      <>
-        <div dangerouslySetInnerHTML={{ __html: ParagraphElementText?.html ?? "" }} className="mb-5" />
-      </>
-    );
-  },
-  (prevProps, nextProps) => {
-    const prev = prevProps.element;
-    const next = nextProps.element;
-
-    return prev.ParagraphElementText?.html === next.ParagraphElementText?.html;
+export const ParagraphElementComponent: React.FC<ParagraphElementProps> = ({
+  element,
+  elementKey,
+  displaySettings,
+  displayTemplateKey,
+}) => {
+  if (!element) {
+    return null;
   }
-);
+
+  const { ParagraphElementText } = element;
+
+  const classes = useMemo(() => {
+    return GetParagraphStyles(displaySettings);
+  }, [displaySettings, displayTemplateKey]);
+
+  return (
+    <>
+      <article
+        dangerouslySetInnerHTML={{ __html: ParagraphElementText?.html ?? "" }}
+        className={classes}
+        data-epi-block-id={elementKey}
+      ></article>
+    </>
+  );
+};

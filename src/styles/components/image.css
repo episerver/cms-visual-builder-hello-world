@@ -1,0 +1,13 @@
+.image-wrapper {
+    @apply relative;
+}
+.image-wrapper.bordered {
+    @apply p-[1px] rounded-md;
+    background: linear-gradient(180deg,rgba(255,255,255,.2) 0%,rgba(255,255,255,.05) 100%); 
+}
+
+.image.bordered {
+  @apply flex items-center justify-center overflow-hidden p-8 relative;
+  background: radial-gradient(96.95% 472.95% at 2.02% 5.65%, rgba(23, 28, 40, 0.9) 0%, rgba(30, 36, 52, 0.9) 100%);
+  z-index: 10;
+}

@@ -20,7 +20,9 @@ const AlignmentMapper: Record<string, string> = {
 
 export function GetColumnStyles(displaySettings: CompositionDisplaySetting[] | null | undefined) {
   const classes: any = {
-      "opti-col": true,
+    flex: true,
+    "flex-wrap": true,
+    "w-full": true
   };
 
   classes[MapDisplaySetting(displaySettings, "gap", GapMapper, "none")] = true;

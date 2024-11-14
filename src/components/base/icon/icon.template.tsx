@@ -17,13 +17,7 @@ import {
 
 export type IconType = { width?: string | number; height?: string | number };
 
-interface IconTemplateProps {
-  icon: string;
-  width?: string | number;
-  height?: string | number;
-}
-
-const IconMapper: Record<string, React.FC<IconType>> = {
+const IconMapper = {
   arrowRight: ArrowRightIcon,
   arrowLeft: ArrowLeftIcon,
   arrowDown: ArrowDownIcon,
@@ -39,9 +33,14 @@ const IconMapper: Record<string, React.FC<IconType>> = {
   personalization: ProductPersonalizationIcon,
   webExperimentation: ProductWebExperimentationIcon,
 };
+interface IconTemplateProps {
+  icon: string;
+  width?: string | number;
+  height?: string | number;
+}
 
 export const IconTemplate: React.FC<IconTemplateProps> = ({ icon, width, height }) => {
-  const Icon = IconMapper[icon];
+  const Icon = IconMapper[icon as keyof typeof IconMapper];
 
   if (!Icon) {
     return null;

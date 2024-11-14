@@ -8,16 +8,14 @@ import { useGlobalContext } from "@context";
 export interface HeaderTemplateProps {}
 
 export const HeaderTemplate: React.FC<HeaderTemplateProps> = () => {
-  const { setIsLoading } = useGlobalContext();
   const [queryVariables, setQueryVariables] = useState({ host: "" });
 
-  const { data, refetch, error, loading } = useQuery(NavigationItemsQuery, {
+  const { data } = useQuery(NavigationItemsQuery, {
     skip: !queryVariables.host,
     variables: queryVariables,
     notifyOnNetworkStatusChange: true,
     onCompleted: () => {
-      console.log("Got nav items", queryVariables);
-      setIsLoading(false);
+      console.log("[QUERY] Obtained navigation items", queryVariables);
     },
   });
 

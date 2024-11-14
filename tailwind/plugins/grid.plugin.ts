@@ -4,7 +4,7 @@ export default function ({ addBase, theme }: PluginAPI) {
   addBase({
     ".opti-row": {
       "--grid-column-count": "4",
-      "--grid-item--min-width": "260px",
+      "--grid-item--min-width": "280px",
 
       "--gap-count": "calc(var(--grid-column-count) - 1)",
       "--total-gap-width": "calc(var(--gap-count) * var(--grid-layout-gap))",

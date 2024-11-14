@@ -1,5 +1,5 @@
 import { IconType } from "../icon.template";
-export const ArrowRightIcon = ({ width, height }: IconType) => {
+export const ArrowRightIcon = ({ width = "19", height = "19"}: IconType) => {
   return (
     <svg
       className="icon-arrowRight"
@@ -8,8 +8,8 @@ export const ArrowRightIcon = ({ width, height }: IconType) => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
-      width="19"
-      height="14"
+      width={width}
+      height={height}
       viewBox="0 0 19 14"
       xmlSpace="preserve"
     >

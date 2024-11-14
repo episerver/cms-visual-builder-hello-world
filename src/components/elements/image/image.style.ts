@@ -14,6 +14,7 @@ export function GetImageStyles(displaySettings: CompositionDisplaySetting[] | nu
 
   const classes: any = {
     image: true,
+    "overflow-hidden": true
   };
 
   const border = GetDisplaySetting(displaySettings, "border") === "true";

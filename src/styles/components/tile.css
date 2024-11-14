@@ -1,0 +1,93 @@
+.tile {
+    @apply w-full h-full rounded overflow-hidden relative backdrop-blur-sm;
+}
+
+.tile-arrow {
+    @apply self-end md:self-start;
+}
+
+.tile-heading {
+    @apply mb-4;
+}
+
+.tile-content {
+    @apply flex flex-col md:flex-row gap-8 md:gap-4 p-6;
+    position: relative;
+    z-index: 10;
+}
+
+.tile::before {
+    @apply pointer-events-none absolute top-0 left-0 w-full h-full rounded;
+    content: "";
+    background: var(--tile-border-color);
+    z-index: 1;
+
+    --tile-border-highlight-color: rgba(255, 255, 255);
+    --tile-border-color: linear-gradient(180deg,
+            color-mix(in srgb, var(--tile-border-highlight-color) 13%, var(--vulcan-95)) 0%,
+            rgba(255, 255, 255, .05) 100%);
+}
+
+.tile::after {
+    @apply pointer-events-none absolute top-0 left-0 w-full h-full rounded;
+    content: "";
+    z-index: 5;
+    border: 1px solid transparent;
+    background: var(--tile-background-color);
+    background-clip: padding-box;
+
+    /* Default colour, in themes it overrides it to gradient */
+    --tile-background-color: rgb(25 30 40 / 90%);
+
+    --tile-background-gradient-highlight-color: transparent;
+    --tile-background-gradient-color: linear-gradient(330deg,
+            color-mix(in srgb, var(--tile-background-gradient-highlight-color) 3%, var(--vulcan-95)) 12.69%,
+            color-mix(in srgb, var(--tile-background-gradient-highlight-color) 13%, var(--vulcan-95)) 77.59%);
+
+}
+
+
+.tile.theme--inherit::after {
+    --tile-background-gradient-highlight-color: var(--theme-color);
+    --tile-background-color: var(--tile-background-gradient-color);
+}
+
+.tile.theme--inherit::before {
+    --tile-border-highlight-color: var(--theme-color);
+}
+
+.tile.theme--blue::after {
+    --tile-background-gradient-highlight-color: var(--optimizely-blue-80-tint);
+    --tile-background-color: var(--tile-background-gradient-color);
+}
+
+.tile.theme--blue::before {
+    --tile-border-highlight-color: var(--optimizely-blue-80-tint);
+}
+
+.tile.theme--purple::after {
+    --tile-background-gradient-highlight-color: var(--purple-80-tint);
+    --tile-background-color: var(--tile-background-gradient-color);
+}
+
+.tile.theme--purple::before {
+    --tile-border-highlight-color: var(--purple-80-tint);
+}
+
+.tile.theme--green::after {
+    --tile-background-gradient-highlight-color: var(--green-80-tint);
+    --tile-background-color: var(--tile-background-gradient-color);
+}
+
+.tile.theme--green::before {
+    --tile-border-highlight-color: var(--green-80-tint);
+}
+
+.tile.theme--orange::after {
+    --tile-background-gradient-highlight-color: var(--orange-80-tint);
+    --tile-background-color: var(--tile-background-gradient-color);
+}
+
+.tile.theme--orange::before {
+    --tile-border-highlight-color: var(--orange-80-tint);
+}

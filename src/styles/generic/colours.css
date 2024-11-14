@@ -134,8 +134,8 @@
 }
 
 .theme--blue {
-  --theme-color: var(--optimizely-blue);
-  --theme-color-psuedo: var(--optimizely-blue);
+  --theme-color: var(--optimizely-blue-80-tint);
+  --theme-color-psuedo: var(--optimizely-blue-80-tint);
 }
 
 .theme--purple {

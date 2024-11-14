@@ -1,7 +1,13 @@
+import clsx from "clsx";
 
-export const Loader: React.FC<{ global?: boolean; translucent?: boolean }> = ({ global = false, translucent = false }) => {
+export const Loader: React.FC<{ global?: boolean }> = ({ global = false }) => {
   return (
-    <div className={`loading ${global ? "loading__global" : ""} ${translucent ? "loading__translucent": ""}`}>
+    <div
+      className={clsx({
+        loader: true,
+        "loader-global": global,
+      })}
+    >
       <span className="circle" />
       <span className="circle" />
       <span className="circle" />

@@ -1,11 +1,12 @@
 import { ApolloProvider } from "@apollo/client";
+import { FooterTemplate } from "@components/layout/footer";
 import { HeaderTemplate } from "@components/layout/header";
 import { Loader } from "@components/utility/loader/loader";
 import { GlobalProvider, useGlobalContext } from "@context";
 import type { AppProps } from "next/app";
+import Script from "next/script";
 import { client } from "../client";
 import "../styles/globals.css";
-import Script from "next/script";
 
 const Main: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { isLoading } = useGlobalContext();
@@ -14,7 +15,7 @@ const Main: React.FC<AppProps> = ({ Component, pageProps }) => {
       {isLoading && <Loader global={true} />}
       <HeaderTemplate />
       <Component {...pageProps} />
-      {/* <FooterTemplate /> */}
+      <FooterTemplate />
     </>
   );
 };

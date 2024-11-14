@@ -92,8 +92,9 @@ const config: Config = {
         bold: "700",
       },
       borderRadius: {
-        DEFAULT: "24px",
-        md: "12px",
+        DEFAULT: "2.4rem",
+        md: "1.2rem",
+        lg: "3.6rem",
       },
       textShadow: {
         DEFAULT: "0px 0px 10px currentColor",

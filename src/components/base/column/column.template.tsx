@@ -7,7 +7,6 @@ export interface ColumnTemplateProps {
   column: ColumnNodeFragment;
 }
 
-
 export const ColumnTemplate: React.FC<ColumnTemplateProps> = ({ column }) => {
   if (!column) {
     return null;
@@ -19,8 +18,10 @@ export const ColumnTemplate: React.FC<ColumnTemplateProps> = ({ column }) => {
 
   return (
     <>
-      <div className={classes}>
-        {column.elements?.map((element) => element && <ElementTemplate element={element as ElementNodeFragment} key={element.key} />)}
+      <div className={"opti-col"}>
+        <div className={classes}>
+          {column.elements?.map((element) => element && <ElementTemplate element={element as ElementNodeFragment} key={element.key} />)}
+        </div>
       </div>
     </>
   );

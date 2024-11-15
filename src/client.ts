@@ -45,44 +45,6 @@ export class OptimizelyIntegrationClient extends ApolloClient<NormalizedCacheObj
   }
 }
 
-// function getClient() {
-//   const graphUrl = process.env.GRAPH_URL;
-//   const singleGraphKey = process.env.GRAPH_SINGLE_KEY;
-
-//   let link: ApolloLink | undefined = undefined;
-
-//   // In Preview Mode
-//   const httpLink = createHttpLink({
-//     uri: `https://${graphUrl}/content/v2?auth=${singleGraphKey}`,
-//   });
-
-//   const authLink = setContext((_, { headers }) => {
-//     const authHeaders: Record<string, string> = {};
-
-//     const previewToken = getPreviewToken();
-//     if (previewToken) {
-//       authHeaders.authorization = previewToken;
-//     }
-
-//     return {
-//       headers: {
-//         ...headers,
-//         ...authHeaders,
-//       },
-//     };
-//   });
-
-//   const communicationScript = ;
-//   document.body.appendChild(communicationScript);
-
-//   link = authLink.concat(httpLink);
-
-//   return new ApolloClient({
-//     link: link,
-//     cache: new InMemoryCache(),
-//   });
-// }
-
 export const client = new OptimizelyIntegrationClient({
   cmsUrl: process.env.CMS_URL ?? "",
   graphUrl: process.env.GRAPH_URL ?? "",

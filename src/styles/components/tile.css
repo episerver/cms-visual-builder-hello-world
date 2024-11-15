@@ -1,8 +1,13 @@
 .tile {
-    @apply w-full h-full rounded overflow-hidden relative backdrop-blur-sm;
+    @apply w-full rounded overflow-hidden relative backdrop-blur-sm;
+}
+
+.tile:hover .tile-arrow {
+    transform: translate(8px);
 }
 
 .tile-arrow {
+    transition: transform .5s ease-in-out;
     @apply self-end md:self-start;
 }
 
@@ -10,8 +15,12 @@
     @apply mb-4;
 }
 
+.tile-description {
+    @apply mb-4;
+}
+
 .tile-content {
-    @apply flex flex-col md:flex-row gap-8 md:gap-4 p-6;
+    @apply flex flex-col md:flex-row gap-8 md:gap-4 p-8;
     position: relative;
     z-index: 10;
 }
@@ -24,7 +33,7 @@
 
     --tile-border-highlight-color: rgba(255, 255, 255);
     --tile-border-color: linear-gradient(180deg,
-            color-mix(in srgb, var(--tile-border-highlight-color) 13%, var(--vulcan-95)) 0%,
+            color-mix(in srgb, var(--tile-border-highlight-color) 33%, var(--vulcan-95)) 0%,
             rgba(255, 255, 255, .05) 100%);
 }
 
@@ -57,7 +66,7 @@
 }
 
 .tile.theme--blue::after {
-    --tile-background-gradient-highlight-color: var(--optimizely-blue-80-tint);
+    --tile-background-gradient-highlight-color: var(--optimizely-blue-80-shade);
     --tile-background-color: var(--tile-background-gradient-color);
 }
 
@@ -66,7 +75,7 @@
 }
 
 .tile.theme--purple::after {
-    --tile-background-gradient-highlight-color: var(--purple-80-tint);
+    --tile-background-gradient-highlight-color: var(--purple-80-shade);
     --tile-background-color: var(--tile-background-gradient-color);
 }
 
@@ -75,7 +84,7 @@
 }
 
 .tile.theme--green::after {
-    --tile-background-gradient-highlight-color: var(--green-80-tint);
+    --tile-background-gradient-highlight-color: var(--green-80-shade);
     --tile-background-color: var(--tile-background-gradient-color);
 }
 
@@ -84,7 +93,7 @@
 }
 
 .tile.theme--orange::after {
-    --tile-background-gradient-highlight-color: var(--orange-80-tint);
+    --tile-background-gradient-highlight-color: var(--orange-80-shade);
     --tile-background-color: var(--tile-background-gradient-color);
 }
 

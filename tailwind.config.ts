@@ -135,13 +135,6 @@ const config: Config = {
     },
     container: {
       center: true,
-      screens: {
-        sm: "576px",
-        md: "768px",
-        lg: "992px",
-        xl: "1200px",
-        xxl: "1400px",
-      },
     },
     colors: {
       "optimizely-blue": {
@@ -252,7 +245,7 @@ const config: Config = {
       sm: "576px",
       md: "768px",
       lg: "992px",
-      xl: "1200px",
+      xl: "1146px",
       xxl: "1400px",
     },
   },

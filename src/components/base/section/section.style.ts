@@ -3,7 +3,9 @@ import { GetDisplaySetting, MapDisplaySetting } from "@helpers/style";
 import clsx from "clsx";
 
 const ContainerMapper: Record<string, string> = {
-  wide: "container",
+  default: "container",
+  spacious: "container-spacious",
+  compact: "container-compact",
   narrow: "container-narrow",
   slim: "container-slim",
   full: "container-full",
@@ -79,7 +81,7 @@ export function GetSectionStyles(displaySettings: CompositionDisplaySetting[] | 
     };
   }
 
-  contentClasses[MapDisplaySetting(displaySettings, "width", ContainerMapper, "wide")] = true;
+  contentClasses[MapDisplaySetting(displaySettings, "width", ContainerMapper, "default")] = true;
 
   wrapperClasses[MapDisplaySetting(displaySettings, "theme", ThemeMapper, "inherit")] = true;
   wrapperClasses[MapDisplaySetting(displaySettings, "border", BorderMapper, "none")] = true;

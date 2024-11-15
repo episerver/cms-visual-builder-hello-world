@@ -71,3 +71,7 @@ img {
         padding-left: 56px
     }
 }
+
+.experience {
+    @apply min-h-screen;
+}

@@ -1,8 +1,13 @@
 .image,
 .video {
-  @apply relative flex items-center justify-center overflow-hidden;
+  @apply relative flex overflow-hidden w-full;
 }
 
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .image.round,
 .video.round,
@@ -13,7 +18,7 @@
 
 .image figure,
 .video figure {
-  @apply relative;
+  @apply relative w-full;
 }
 
 .image.bordered,

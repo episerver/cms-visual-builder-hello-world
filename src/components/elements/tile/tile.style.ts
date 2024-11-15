@@ -5,6 +5,7 @@ import clsx from "clsx";
 export function GetTileStyles(displaySettings?: CompositionDisplaySetting[]) {
   let classes: any = {
     tile: true,
+    "reset-link": true
   };
 
   if (!displaySettings) {
@@ -12,7 +13,7 @@ export function GetTileStyles(displaySettings?: CompositionDisplaySetting[]) {
   }
 
   const theme = GetDisplaySetting(displaySettings, "theme", "default");
-  classes[`tile--${theme}`] = true;
+  classes[`theme--${theme}`] = true;
   classes = GetVerticalPadding(displaySettings, classes);
 
   return clsx(classes);

@@ -15,6 +15,8 @@ const getContainer = (theme: any, key: string, screen: string) => {
 
 export default function ({ addBase, theme }: PluginAPI) {
   addBase({
+    ...getContainer(theme, "spacious", "xl"),
+    ...getContainer(theme, "compact", "lg"),
     ...getContainer(theme, "narrow", "md"),
     ...getContainer(theme, "slim", "sm"),
     ".container": {

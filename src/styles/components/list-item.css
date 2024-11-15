@@ -1,8 +1,8 @@
 .list-arrow-item {
-  @apply flex items-center w-full;
+  @apply flex w-full gap-2;
 }
 .list-arrow-item:before {
-  @apply left-0 w-[1.6rem] h-[1.6rem] block relative mr-2;
+  @apply left-0 top-1 min-w-[1.6rem] min-h-[1.6rem] block relative bg-no-repeat;
   content: "";
   background-image: url("/assets/images/list-arrow-blue.svg");
 }

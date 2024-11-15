@@ -12,7 +12,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ items }) =
       <div className={`outer-padding relative z-10 hidden lg:block`}>
         <div className="container">
           <div className="flex justify-between min-h-12 items-center">
-            <div className="grid grid-flow-col gap-8 items-center">
+            <div className="grid grid-flow-col gap-8 items-center min-h-20">
               <div className="flex">
                 <LogoTemplate />
               </div>

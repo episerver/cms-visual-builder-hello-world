@@ -1,10 +1,9 @@
 import { ExperienceTemplate } from "@components/base/experience/experience.template";
 import { CMSUrlProps, parseQueryParameters } from "@helpers/cms/parsers";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Preview() {
-  const router = useRouter();
   const query = useSearchParams();
 
   const [urlProps, setUrlProps] = useState<CMSUrlProps>();

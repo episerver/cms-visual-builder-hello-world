@@ -15,7 +15,7 @@
     @apply mb-4;
 }
 
-.tile-description {
+.tile-description, .tile-icon {
     @apply mb-4;
 }
 

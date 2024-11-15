@@ -17,12 +17,10 @@ export const ColumnTemplate: React.FC<ColumnTemplateProps> = ({ column }) => {
   }, [column]);
 
   return (
-    <>
-      <div className={"opti-col"}>
-        <div className={classes}>
-          {column.elements?.map((element) => element && <ElementTemplate element={element as ElementNodeFragment} key={element.key} />)}
-        </div>
+    <div className={"opti-col"} data-epi-block-id={column.key}>
+      <div className={classes}>
+        {column.elements?.map((element) => element && <ElementTemplate element={element as ElementNodeFragment} key={element.key} />)}
       </div>
-    </>
+    </div>
   );
 };

@@ -1,5 +1,5 @@
 .stats {
-    @apply relative mb-2 mr-2 inline-block w-full overflow-hidden rounded-md after:duration-800 after:bg-white after:opacity-10 hover:after:opacity-40
+    @apply relative mb-2 inline-block w-full overflow-hidden rounded-md after:duration-800 after:bg-white after:opacity-10 hover:after:opacity-40
 }
 
 .stats-inner {
@@ -7,19 +7,27 @@
 }
 
 .stats-inner__content {
-    @apply relative z-10 grid grid-cols-1 gap-4 bg-vulcan-95 px-4 items-center;
+    @apply relative z-10 flex gap-8 bg-vulcan-95 px-4;
+}
+
+.stats-inner__body {
+    @apply py-2;
 }
 
 .stats-logo {
-    @apply bg-gradient-to-r from-transparent via-white to-transparent opacity-40 h-full w-[1px];
+    @apply relative flex justify-center items-center;
 }
 
-.stats-logo>div {
-    @apply max-w-20;
+.stats-logo::before {
+    content: "";
+    @apply absolute top-0 w-[1px] h-[90%] m-auto opacity-50 bg-gradient-to-b from-transparent to-white;
+    right: calc(var(--grid-layout-gap) * -0.5);
+    background:
+        linear-gradient(1deg, rgba(255, 255, 255, 0) -2.88%, rgba(255, 255, 255, .6) 51.83%, rgba(255, 255, 255, .05) 99.11%, rgba(255, 255, 255, 0) 99.11%);
 }
 
-.stats-logo>div>img {
-    @apply max-h-8 w-full min-w-10;
+.stats-logo img {
+    @apply max-h-8 w-full min-w-12 max-w-12;
 }
 
 .stats-title {

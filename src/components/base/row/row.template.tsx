@@ -17,12 +17,8 @@ export const RowTemplate: React.FC<RowTemplateProps> = ({ row }) => {
   }, [row]);
 
   return (
-    <>
-      <div className={classes}>
-        {row.columns?.map(
-          (column, ind) => column && <ColumnTemplate column={column as ColumnNodeFragment} key={column.key} />
-        )}
-      </div>
-    </>
+    <div className={classes} data-epi-block-id={row.key}>
+      {row.columns?.map((column, ind) => column && <ColumnTemplate column={column as ColumnNodeFragment} key={column.key} />)}
+    </div>
   );
 };

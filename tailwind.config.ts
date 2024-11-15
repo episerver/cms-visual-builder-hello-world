@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
-import gridPlugin from "./tailwind/plugins/grid.plugin";
-import containerPlugin from "./tailwind/plugins/container.plugin";
 import baseFontSizePlugin from "tailwindcss-base-font-size";
+import containerPlugin from "./tailwind/plugins/container.plugin";
+import gridPlugin from "./tailwind/plugins/grid.plugin";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./src/**/*.style.ts"],
@@ -69,6 +69,10 @@ const config: Config = {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
         },
+      },
+      gridTemplateColumns: {
+        "auto-2": "repeat(auto-fit, minmax(calc(50% - var(--grid-layout-gap)), 1fr))",
+        "auto-4": "repeat(auto-fit, minmax(calc(25% - var(--grid-layout-gap)), 1fr))",
       },
       fontSize: {
         xs: "1.2rem",

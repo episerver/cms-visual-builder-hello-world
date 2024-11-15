@@ -43,8 +43,12 @@ const CurveMapper: Record<string, string> = {
 
 const OverlapMapper: Record<string, string> = {
   none: "",
-  top: "overlap-top",
-  bottom: "overlap-bottom",
+  topSmall: "overlap-top--small",
+  topMedium: "overlap-top--medium",
+  topLarge: "overlap-top--large",
+  bottomSmall: "overlap-bottom--small",
+  bottomMedium: "overlap-bottom--medium",
+  bottomLarge: "overlap-bottom--large",
 };
 
 const PaddingMapper: Record<string, string> = {
@@ -75,7 +79,7 @@ export function GetSectionStyles(displaySettings: CompositionDisplaySetting[] | 
     };
   }
 
-  contentClasses[MapDisplaySetting(displaySettings, "container", ContainerMapper, "wide")] = true;
+  contentClasses[MapDisplaySetting(displaySettings, "width", ContainerMapper, "wide")] = true;
 
   wrapperClasses[MapDisplaySetting(displaySettings, "theme", ThemeMapper, "inherit")] = true;
   wrapperClasses[MapDisplaySetting(displaySettings, "border", BorderMapper, "none")] = true;

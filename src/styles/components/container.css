@@ -35,19 +35,14 @@
 
 /* Container Content */
 .opti-container>.opti-container__content {
-  position: relative;
+  @apply relative;
 }
 
 /* Container Background */
 .opti-container>.opti-container__background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  mask-composite: xor;
+  @apply absolute inset-0 w-full h-full;
   -webkit-mask-composite: xor;
+  mask-composite: xor;
 }
 
 /* Container Padding */
@@ -236,22 +231,22 @@
 }
 
 .curve-bottom .opti-container__background {
-  mask: linear-gradient(black, black), url(/assets/images/mask-bottom.svg) bottom center no-repeat;
   -webkit-mask: linear-gradient(black, black), url(/assets/images/mask-bottom.svg) bottom center no-repeat;
+  mask: linear-gradient(black, black), url(/assets/images/mask-bottom.svg) bottom center no-repeat;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 
 .curve-top .opti-container__background {
-  mask: linear-gradient(black, black), url(/assets/images/mask-top.svg) top center no-repeat;
   -webkit-mask: linear-gradient(black, black), url(/assets/images/mask-top.svg) top center no-repeat;
+  mask: linear-gradient(black, black), url(/assets/images/mask-top.svg) top center no-repeat;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 
 .curve-bottom.curve-top .opti-container__background {
-  mask: linear-gradient(black, black), url(/assets/images/mask-both.svg) bottom center no-repeat;
   -webkit-mask: linear-gradient(black, black), url(/assets/images/mask-both.svg) bottom center no-repeat;
+  mask: linear-gradient(black, black), url(/assets/images/mask-both.svg) bottom center no-repeat;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }

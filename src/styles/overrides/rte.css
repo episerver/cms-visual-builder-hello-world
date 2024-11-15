@@ -1,4 +1,4 @@
-:where(a[href]):not(:where([class~="not-rte"], [class~="not-rte"] *)):not(.button):not(.card-anchor):not(.normal-link) {
+:where(a[href]):not(.button):not(.reset-link) {
   color: var(--color-link-body);
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -7,8 +7,8 @@
   transition: text-decoration-color 0.4s, color 0.4s ease-in-out;
 }
 
-:where(a[href]):not(:where([class~="not-rte"], [class~="not-rte"] *)):not(.button):not(.card-anchor):not(.t-link--arrow):not(.normal-link):hover,
-.rte :where(a[href]):not(:where([class~="not-rte"], [class~="not-rte"] *)):not(.button):not(.card-anchor):not(.t-link--arrow):not(.normal-link):focus {
+:where(a[href]):not(.button):not(.reset-link):hover,
+:where(a[href]):not(.button):not(.reset-link):focus {
   text-decoration-color: var(--theme-color);
   color: var(--color-link-body-hover)
 }

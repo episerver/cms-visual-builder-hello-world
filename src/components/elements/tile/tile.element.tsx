@@ -33,7 +33,7 @@ export const TileElementComponent: React.FC<TileElementProps> = ({ element, elem
   const tagProps = link ? { href: link } : {};
 
   return (
-    <Tag className={"tile"} {...tagProps}>
+    <Tag className={"tile"} {...tagProps} data-epi-block-id={elementKey}>
       <div className={"tile-content"}>
         <div className={"tile-content__innner"}>
           <header className={"tile-header"}>

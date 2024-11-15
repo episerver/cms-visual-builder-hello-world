@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export const LogoTemplate: React.FC = () => {
   return (
     <div className="flex items-center">

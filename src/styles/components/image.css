@@ -1,13 +1,29 @@
-.image-wrapper {
-    @apply relative;
-}
-.image-wrapper.bordered {
-    @apply p-[1px] rounded-md;
-    background: linear-gradient(180deg,rgba(255,255,255,.2) 0%,rgba(255,255,255,.05) 100%); 
+.image,
+.video {
+  @apply relative flex items-center justify-center overflow-hidden;
 }
 
-.image.bordered {
-  @apply flex items-center justify-center overflow-hidden p-8 relative;
-  background: radial-gradient(96.95% 472.95% at 2.02% 5.65%, rgba(23, 28, 40, 0.9) 0%, rgba(30, 36, 52, 0.9) 100%);
+
+.image.round,
+.video.round,
+.image.round figure,
+.video.round figure {
+  @apply rounded-md;
+}
+
+.image figure,
+.video figure {
+  @apply relative;
+}
+
+.image.bordered,
+.video.bordered {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, .05) 100%);
+}
+
+.image.bordered figure,
+.video.bordered figure {
+  @apply p-8 border border-transparent;
+  background: radial-gradient(96.95% 472.95% at 2.02% 5.65%, rgba(23, 28, 40, 0.9) 0%, rgba(30, 36, 52, 0.9) 100%) padding-box;
   z-index: 10;
 }

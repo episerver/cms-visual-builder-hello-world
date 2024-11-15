@@ -7,9 +7,9 @@ const CornerMapper: Record<string, string> = {
   sharp: "",
 };
 
-export function GetImageStyles(displaySettings: CompositionDisplaySetting[] | null | undefined) {
+export function GetVideoStyle(displaySettings: CompositionDisplaySetting[] | null | undefined) {
   const classes: any = {
-    image: true,
+    video: true,
   };
 
   if (!displaySettings) {

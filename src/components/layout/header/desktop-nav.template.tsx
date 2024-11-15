@@ -21,7 +21,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ items }) =
                   <li key={item.url ?? index}>
                     <Link
                       href={item.url ?? ""}
-                      className="normal-link block w-full py-5 text-left text-lg font-semibold transition hover:text-light-blue focus:text-light-blue lg:flex lg:min-h-[81px] lg:w-auto lg:items-center lg:px-[10px] lg:py-0 lg:text-base lg:font-medium xl:px-[20px] "
+                      className="reset-link block w-full py-5 text-left text-lg font-semibold transition hover:text-light-blue focus:text-light-blue lg:flex lg:min-h-[81px] lg:w-auto lg:items-center lg:px-[10px] lg:py-0 lg:text-base lg:font-medium xl:px-[20px] "
                     >
                       {item.name}
                     </Link>

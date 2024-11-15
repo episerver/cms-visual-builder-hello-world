@@ -19,19 +19,11 @@ export const ImageElementComponent: React.FC<ImageElementProps> = ({ element, el
   const { ImageUrl, ImageAltText } = element;
   const srcUrl = ImageUrl?.url?.default;
 
-  const border = GetDisplaySetting(displaySettings, "border", "false") === "true";
-
   return (
     <>
       {srcUrl && (
-        <div
-          data-epi-block-id={elementKey}
-          className={clsx({
-            "image-wrapper": true,
-            bordered: border,
-          })}
-        >
-          <figure className={classes}>
+        <div data-epi-block-id={elementKey} className={classes}>
+          <figure>
             <img src={srcUrl} alt={ImageAltText ?? ""} />
           </figure>
         </div>

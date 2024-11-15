@@ -1,6 +1,12 @@
 import { CompositionDisplaySetting } from "@graphql/graphql";
-import { GetVerticalPadding } from "@helpers/style";
+import { GetVerticalPadding, MapDisplaySetting, TextAlignmentMapper } from "@helpers/style";
 import clsx from "clsx";
+
+const OverlineAlignmentMapper: Record<string, string> = {
+  left: "justify-start",
+  center: "justify-center",
+  right: "justify-end",
+};
 
 export function GetOverlineStyles(displaySettings: CompositionDisplaySetting[] | null | undefined) {
   if (!displaySettings) {
@@ -11,8 +17,7 @@ export function GetOverlineStyles(displaySettings: CompositionDisplaySetting[] |
     "text-overline": true,
   };
 
-  //   classes[MapDisplaySetting(displaySettings, "alignment", TextAlignmentMapper, "left")] = true;
-
+  classes[MapDisplaySetting(displaySettings, "alignment", OverlineAlignmentMapper, "left")] = true;
   classes = GetVerticalPadding(displaySettings, classes);
 
   return clsx(classes);

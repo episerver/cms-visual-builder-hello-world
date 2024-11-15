@@ -15,11 +15,14 @@ const AlignmentMapper: Record<string, string> = {
   end: "item-end",
   start: "items-start",
   center: "items-center",
+  stretch: "items-stretch",
 };
 
 export function GetRowStyles(displaySettings: CompositionDisplaySetting[] | null | undefined) {
   let classes: any = {
-    "opti-row": true,
+    // "opti-row": true,
+    "opti-row lg:grid-cols-auto-2 xl:grid-cols-auto-4":
+      true,
   };
 
   classes[MapDisplaySetting(displaySettings, "gap", GapMapper, "default")] = true;

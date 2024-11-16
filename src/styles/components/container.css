@@ -3,29 +3,21 @@
   --curve-ratio: -6.6207vw;
   --container-padding-top: 12.8rem;
   --container-padding-bottom: 12.8rem;
-  --background-top:
-    linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #0f2d8e 100%);
-  --background-right:
-    linear-gradient(90deg, #10141d 60.61%, color-mix(in srgb, var(--theme-color) 50%, transparent) 99.84%);
-  --background-left:
-    linear-gradient(-90deg, #10141d 60.61%, color-mix(in srgb, var(--theme-color) 50%, transparent) 99.84%);
-  --background-bottom:
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0f2d8e 100%);
-  --background-top-horizontal:
-    linear-gradient(0deg, var(--vulcan, #10141d) 0%, rgba(0, 0, 0, 0) 100%),
+  --background-top: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #0f2d8e 100%);
+  --background-right: linear-gradient(90deg, #10141d 60.61%, color-mix(in srgb, var(--theme-color) 50%, transparent) 99.84%);
+  --background-left: linear-gradient(-90deg, #10141d 60.61%, color-mix(in srgb, var(--theme-color) 50%, transparent) 99.84%);
+  --background-bottom: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0f2d8e 100%);
+  --background-top-horizontal: linear-gradient(0deg, var(--vulcan, #10141d) 0%, rgba(0, 0, 0, 0) 100%),
     radial-gradient(30.36% 30.36% at 50.03% -69.38%, #171541 0%, rgba(23, 21, 65, 0) 81.25%),
     radial-gradient(46.03% 46.03% at 100% 30.62%, rgba(95, 29, 142, 0.2) 0%, rgba(95, 29, 142, 0) 100%),
     radial-gradient(70.72% 75.15% at 13.7% 11.41%, #0f2d8e 0%, rgba(15, 45, 142, 0) 100%);
-  --background-bottom-horizontal:
-    linear-gradient(180deg, var(--vulcan, #10141d) 0%, rgba(0, 0, 0, 0) 100%),
+  --background-bottom-horizontal: linear-gradient(180deg, var(--vulcan, #10141d) 0%, rgba(0, 0, 0, 0) 100%),
     radial-gradient(30.36% 30.36% at 50.03% 0%, #171541 0%, rgba(23, 21, 65, 0) 81.25%),
     radial-gradient(46.03% 46.03% at 100% 100%, var(--optimizely-blue, #0037ff) 0%, rgba(107, 23, 204, 0.1) 100%),
     radial-gradient(70.72% 75.15% at 13.7% 80.79%, var(--vulcan, #10141d) 0%, rgba(15, 45, 142, 0) 100%);
-  --background-top-highlight:
-    radial-gradient(300px 100.04% at 50% 0%, rgba(0, 55, 255, 1) 0%, rgba(80, 17, 153, 0) 100%),
+  --background-top-highlight: radial-gradient(300px 100.04% at 50% 0%, rgba(0, 55, 255, 1) 0%, rgba(80, 17, 153, 0) 100%),
     linear-gradient(180deg, var(--vulcan) 0%, #0e1122 35.54%, var(--vulcan) 100%);
-  --background-bottom-highlight:
-    radial-gradient(300px 100.04% at 50% 100%, rgba(0, 55, 255, 1) 0%, rgba(80, 17, 153, 0) 100%),
+  --background-bottom-highlight: radial-gradient(300px 100.04% at 50% 100%, rgba(0, 55, 255, 1) 0%, rgba(80, 17, 153, 0) 100%),
     linear-gradient(180deg, var(--vulcan) 0%, #0e1122 35.54%, var(--vulcan) 100%);
 
   position: relative;
@@ -34,12 +26,12 @@
 }
 
 /* Container Content */
-.opti-container>.opti-container__content {
+.opti-container > .opti-container__content {
   @apply relative;
 }
 
 /* Container Background */
-.opti-container>.opti-container__background {
+.opti-container > .opti-container__background {
   @apply absolute inset-0 w-full h-full;
   -webkit-mask-composite: xor;
   mask-composite: xor;
@@ -131,7 +123,6 @@
   height: 90%;
 }
 
-
 .opti-container.overlap-bottom--large .opti-container__background {
   bottom: auto;
   height: 70%;
@@ -141,7 +132,6 @@
   bottom: auto;
   height: 80%;
 }
-
 
 .opti-container.overlap-bottom--small .opti-container__background {
   bottom: auto;
@@ -202,11 +192,13 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0) -2.88%,
-      rgba(255, 255, 255, 0.975) 51.83%,
-      rgba(255, 255, 255, 0.025) 99.11%,
-      rgba(255, 255, 255, 0) 99.11%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) -2.88%,
+    rgba(255, 255, 255, 0.975) 51.83%,
+    rgba(255, 255, 255, 0.025) 99.11%,
+    rgba(255, 255, 255, 0) 99.11%
+  );
 }
 
 .opti-container.border-bottom .opti-container__background:after {
@@ -216,13 +208,14 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0) -2.88%,
-      rgba(255, 255, 255, 0.3) 51.83%,
-      rgba(255, 255, 255, 0.025) 99.11%,
-      rgba(255, 255, 255, 0) 99.11%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) -2.88%,
+    rgba(255, 255, 255, 0.3) 51.83%,
+    rgba(255, 255, 255, 0.025) 99.11%,
+    rgba(255, 255, 255, 0) 99.11%
+  );
 }
-
 
 /* Container Curves */
 .opti-container.curve-top,
@@ -231,15 +224,15 @@
 }
 
 .curve-bottom .opti-container__background {
-  -webkit-mask: linear-gradient(black, black), url(/assets/images/mask-bottom.svg) bottom center no-repeat;
-  mask: linear-gradient(black, black), url(/assets/images/mask-bottom.svg) bottom center no-repeat;
+  -webkit-mask: linear-gradient(black, black), url(/assets/images/mask-bottom.svg) bottom / contain center no-repeat;
+  mask: linear-gradient(black, black), url(/assets/images/mask-bottom.svg) bottom center / contain no-repeat;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 
 .curve-top .opti-container__background {
-  -webkit-mask: linear-gradient(black, black), url(/assets/images/mask-top.svg) top center no-repeat;
-  mask: linear-gradient(black, black), url(/assets/images/mask-top.svg) top center no-repeat;
+  -webkit-mask: linear-gradient(black, black), url(/assets/images/mask-top.svg) top center / contain no-repeat;
+  mask: linear-gradient(black, black), url(/assets/images/mask-top.svg) top center / contain no-repeat;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }

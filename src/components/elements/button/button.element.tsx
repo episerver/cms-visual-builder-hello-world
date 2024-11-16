@@ -1,5 +1,5 @@
 import { IconTemplate } from "@components/base/icon";
-import { ButtonFragmentFragment, CompositionDisplaySetting } from "@graphql/graphql";
+import { ButtonFragmentFragment, CompositionDisplaySetting } from "@generated/graphql";
 import { GetDisplaySetting } from "@helpers/style";
 import { useCallback, useMemo } from "react";
 import { GetButtonStyles } from "./button.style";

@@ -1,4 +1,4 @@
-import { StatsFragmentFragment } from "@graphql/graphql";
+import { StatsFragmentFragment } from "@generated/graphql";
 import { ElementProps } from "../element.types";
 
 export interface StatsElementProps extends ElementProps<StatsFragmentFragment> {}

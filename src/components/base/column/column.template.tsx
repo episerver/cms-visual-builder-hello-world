@@ -1,4 +1,4 @@
-import { ColumnNodeFragment, CompositionDisplaySetting, ElementNodeFragment } from "@graphql/graphql";
+import { ColumnNodeFragment, CompositionDisplaySetting, ElementNodeFragment } from "@generated/graphql";
 import { useMemo } from "react";
 import { ElementTemplate } from "../element/element.template";
 import { GetColumnStyles } from "./column.style";

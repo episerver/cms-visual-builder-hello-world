@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting, RowNodeFragment, SectionNodeFragment } from "@graphql/graphql";
+import { CompositionDisplaySetting, RowNodeFragment, SectionNodeFragment } from "@generated/graphql";
 import { useMemo } from "react";
 import { RowTemplate } from "../row/row.template";
 import { GetSectionStyles } from "./section.style";

@@ -1,4 +1,4 @@
-import { graphql } from "@graphql";
+import { graphql } from "@generated/graphql/gql";
 
 export const NavigationItemsQuery = graphql(/* GraphQL */ `
   query GetNavigationLinks($status: String! = "Published", $host: String) {

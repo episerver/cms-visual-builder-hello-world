@@ -1,5 +1,5 @@
 import { IconTemplate } from "@components/base/icon";
-import { TileFragmentFragment } from "@graphql/graphql";
+import { TileFragmentFragment } from "@generated/graphql";
 import { GetDisplaySetting } from "@helpers/style";
 import { useMemo } from "react";
 import { ElementProps } from "../element.types";

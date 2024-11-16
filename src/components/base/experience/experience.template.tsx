@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { CompositionDisplaySetting, SectionNodeFragment } from "@graphql/graphql";
+import { CompositionDisplaySetting, SectionNodeFragment } from "@generated/graphql";
 import { useContentSaved } from "@hooks";
 import { useEffect, useMemo } from "react";
 import { SectionTemplate } from "../section/section.template";

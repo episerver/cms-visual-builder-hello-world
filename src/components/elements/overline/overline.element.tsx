@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting, OverlineFragmentFragment } from "@graphql/graphql";
+import { CompositionDisplaySetting, OverlineFragmentFragment } from "@generated/graphql";
 import { memo, useMemo } from "react";
 import { GetOverlineStyles } from "./overline.style";
 import { GetDisplaySetting } from "@helpers/style";

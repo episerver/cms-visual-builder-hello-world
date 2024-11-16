@@ -1,4 +1,4 @@
-import { ImageFragmentFragment } from "@graphql/graphql";
+import { ImageFragmentFragment } from "@generated/graphql";
 import { GetDisplaySetting } from "@helpers/style";
 import clsx from "clsx";
 import { useMemo } from "react";

@@ -1,4 +1,4 @@
-import { graphql } from "@graphql";
+import { graphql } from "@generated/graphql/gql";
 
 export const ExperienceQuery = graphql(/* GraphQL */ `
   query GetExperience($key: String, $version: String, $locale: String, $url: String, $status: String) {

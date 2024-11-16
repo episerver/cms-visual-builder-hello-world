@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting } from "@graphql/graphql";
+import { CompositionDisplaySetting } from "@generated/graphql";
 import { GetVerticalPadding, MapDisplaySetting, TextAlignmentMapper } from "@helpers/style";
 import clsx from "clsx";
 

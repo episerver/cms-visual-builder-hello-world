@@ -17,11 +17,11 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@graphql": [
-        "./src/graphql/generated"
+      "@generated/graphql": [
+        "./src/generated/graphql/graphql.ts"
       ],
-      "@graphql/*": [
-        "./src/graphql/generated/*"
+      "@generated/graphql/*": [
+        "./src/generated/graphql/*"
       ],
       "@helpers": [
         "./src/helpers"

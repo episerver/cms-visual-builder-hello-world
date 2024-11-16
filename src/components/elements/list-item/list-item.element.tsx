@@ -1,4 +1,4 @@
-import { ListItemFragmentFragment } from "@graphql/graphql";
+import { ListItemFragmentFragment } from "@generated/graphql";
 import { ElementProps } from "../element.types";
 
 export interface ListItemElementProps extends ElementProps<ListItemFragmentFragment> {}

@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting, ElementNodeFragment } from "@graphql/graphql";
+import { CompositionDisplaySetting, ElementNodeFragment } from "@generated/graphql";
 import { ElementLocator } from "./element.mapper";
 
 export interface ElementTemplateProps {

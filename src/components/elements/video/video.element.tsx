@@ -1,4 +1,4 @@
-import { VideoFragmentFragment } from "@graphql/graphql";
+import { VideoFragmentFragment } from "@generated/graphql";
 import { useMemo } from "react";
 import { ElementProps } from "../element.types";
 import { GetVideoStyle } from "./video.style";

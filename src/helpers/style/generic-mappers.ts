@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting } from "@graphql/graphql";
+import { CompositionDisplaySetting } from "@generated/graphql";
 import { GetDisplaySetting, MapDisplaySetting } from "./display-settings";
 
 export const PaddingMapper: Record<string, string> = {

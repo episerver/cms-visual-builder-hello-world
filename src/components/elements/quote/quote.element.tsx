@@ -1,5 +1,5 @@
 import { IconTemplate } from "@components/base/icon";
-import { QuoteFragmentFragment } from "@graphql/graphql";
+import { QuoteFragmentFragment } from "@generated/graphql";
 import { useMemo } from "react";
 import { GetQuoteStyles } from "./quote.style";
 import { ElementProps } from "../element.types";

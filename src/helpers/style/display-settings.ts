@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting } from "@graphql/graphql";
+import { CompositionDisplaySetting } from "@generated/graphql";
 
 export function GetDisplaySetting(displaySettings: CompositionDisplaySetting[] | null | undefined, key: string, fallback?: string) {
   const setting = displaySettings?.find((setting) => setting.key === key)?.value ?? fallback;

@@ -1,4 +1,4 @@
-import { HeadingFragmentFragment } from "@graphql/graphql";
+import { HeadingFragmentFragment } from "@generated/graphql";
 import { memo, useMemo } from "react";
 import { ElementProps } from "../element.types";
 import { GetHeadingStyles } from "./heading.style";

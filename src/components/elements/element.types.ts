@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting } from "@graphql/graphql";
+import { CompositionDisplaySetting } from "@generated/graphql";
 
 export interface ElementProps<T> {
   element?: T;

@@ -1,4 +1,4 @@
-import { graphql } from "@graphql";
+import { graphql } from "@generated/graphql/gql";
 
 export const StatsFragment = graphql(/* GraphQL */ `
   fragment StatsFragment on StatsElement {

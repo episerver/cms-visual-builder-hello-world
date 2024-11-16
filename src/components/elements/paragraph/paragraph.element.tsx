@@ -1,4 +1,4 @@
-import { CompositionDisplaySetting, ParagraphFragmentFragment } from "@graphql/graphql";
+import { CompositionDisplaySetting, ParagraphFragmentFragment } from "@generated/graphql";
 import clsx from "clsx";
 import { memo, useMemo } from "react";
 import { GetParagraphStyles } from "./paragraph.style";

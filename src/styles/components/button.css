@@ -1,80 +1,75 @@
 .button,
 a.button[href] {
-    --button-font-size: 1.6rem;
-    --button-padding: .8rem 1.6rem .68rem 1.6rem;
-    --button-text-color: var(--vulcan);
-    --button-background-color: linear-gradient(1deg, rgba(72, 79, 97, .2) -31.8%, rgba(72, 79, 97, 0) 28.65%), linear-gradient(137deg, #fffffff6 2.87%, rgba(206, 210, 220, .95) 72.77%);
-    --button-background-color--hover: linear-gradient(1deg, rgba(72, 79, 97, .2) -31.8%, rgba(72, 79, 97, 0) 28.65%), linear-gradient(137deg, #fffffff6 2.87%, rgba(206, 210, 220, .95) 72.77%);
-    --button-background-color--active: radial-gradient(49.77% 55.21% at 50.23% 127.08%, rgba(72, 79, 97, .2) 24.38%, rgba(72, 79, 97, 0) 100%), linear-gradient(346deg, #fffffff6 -8.64%, rgba(206, 210, 220, .95) 93.71%);
-    --background-gradient-border-color: rgba(255, 255, 255, .6);
-    --background-gradient-border-color--hover: rgba(255, 255, 255, .8);
-    --background-gradient-border-color--active: rgba(255, 255, 255, .6);
-    --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, .05), 0px -5px 10px 0px rgba(0, 0, 0, .4) inset, 0px 5px 10px 0px rgba(255, 255, 255, .9) inset, 0px -1px 10px 0px rgba(255, 255, 255, .8) inset, 0px 1px 5px 0px #fff inset;
-    --button-box-shadow--active: 0px 0px 20px 15px rgba(150, 156, 172, 0), 0px -5px 10px 0px rgba(0, 0, 0, 0) inset, 0px 5px 10px 0px rgba(255, 255, 255, 0) inset, 0px -1px 10px 0px rgba(255, 255, 255, 0) inset, 0px 1px 5px 0px rgba(255, 255, 255, 0) inset;
-    --button-transition: .75s cubic-bezier(.56, .08, .51, .95);
-    --button-border-radius: 12px;
-    --button-font-weight: 620;
-    cursor: pointer;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    border: none;
-    position: relative;
-    display: inline-block;
-    padding: 0;
-    font-size: var(--button-font-size);
-    font-weight: var(--button-font-weight);
-    line-height: 1.5;
-    color: var(--button-text-color);
-    border-radius: var(--button-border-radius)
+  --button-font-size: 1.6rem;
+  --button-padding: 0.8rem 1.6rem 0.68rem 1.6rem;
+  --button-text-color: var(--vulcan);
+  --button-background-color: linear-gradient(1deg, rgba(72, 79, 97, 0.2) -31.8%, rgba(72, 79, 97, 0) 28.65%),
+    linear-gradient(137deg, #fffffff6 2.87%, rgba(206, 210, 220, 0.95) 72.77%);
+  --button-background-color--hover: linear-gradient(1deg, rgba(72, 79, 97, 0.2) -31.8%, rgba(72, 79, 97, 0) 28.65%),
+    linear-gradient(137deg, #fffffff6 2.87%, rgba(206, 210, 220, 0.95) 72.77%);
+  --button-background-color--active: radial-gradient(
+      49.77% 55.21% at 50.23% 127.08%,
+      rgba(72, 79, 97, 0.2) 24.38%,
+      rgba(72, 79, 97, 0) 100%
+    ),
+    linear-gradient(346deg, #fffffff6 -8.64%, rgba(206, 210, 220, 0.95) 93.71%);
+  --background-gradient-border-color: rgba(255, 255, 255, 0.6);
+  --background-gradient-border-color--hover: rgba(255, 255, 255, 0.8);
+  --background-gradient-border-color--active: rgba(255, 255, 255, 0.6);
+  --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, 0.05), 0px -5px 10px 0px rgba(0, 0, 0, 0.4) inset,
+    0px 5px 10px 0px rgba(255, 255, 255, 0.9) inset, 0px -1px 10px 0px rgba(255, 255, 255, 0.8) inset, 0px 1px 5px 0px #fff inset;
+  --button-box-shadow--active: 0px 0px 20px 15px rgba(150, 156, 172, 0), 0px -5px 10px 0px rgba(0, 0, 0, 0) inset,
+    0px 5px 10px 0px rgba(255, 255, 255, 0) inset, 0px -1px 10px 0px rgba(255, 255, 255, 0) inset,
+    0px 1px 5px 0px rgba(255, 255, 255, 0) inset;
+  --button-transition: 0.75s cubic-bezier(0.56, 0.08, 0.51, 0.95);
+  --button-border-radius: 12px;
+  --button-font-weight: 620;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  background: var(--button-background-color) padding-box, var(--background-gradient-border-color) border-box;
+  border: none;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: 1.5;
+  color: var(--button-text-color);
+  border-radius: var(--button-border-radius);
 }
 
 .button .button__content,
 a.button[href] .button__content {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    padding: var(--button-padding);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
-    border: 1px solid transparent;
-    border-radius: var(--button-border-radius)
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: var(--button-padding);
+  border: 1px solid transparent;
+  border-radius: var(--button-border-radius);
 }
 
 .button .button__content span,
 a.button[href] .button__content span {
-    padding: 0 1.2rem;
-    transition: .25s ease-in-out transform
+  padding: 0 1.2rem;
+  transition: 0.25s ease-in-out transform;
 }
 
-.button .button__content:before,
-a.button[href] .button__content:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translate(-50%);
-    width: 200%;
-    padding-bottom: 200%;
-    background: var(--button-background-color) padding-box, var(--background-gradient-border-color) border-box;
-    transition: var(--button-transition) all
-}
 
 .button:after,
 a.button[href]:after {
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--button-border-radius);
-    transition: var(--button-transition) box-shadow
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--button-border-radius);
+  transition: var(--button-transition) box-shadow;
 }
 
 .button:hover:not([disabled]),
@@ -83,7 +78,7 @@ a.button[href]:after {
 a.button[href]:hover:not([disabled]),
 a.button[href]:focus:not([disabled]),
 a.button[href]:active:not([disabled]) {
-    color: var(--button-text-color)
+  color: var(--button-text-color);
 }
 
 .button:hover:not([disabled]) .button__content:before,
@@ -92,8 +87,8 @@ a.button[href]:active:not([disabled]) {
 a.button[href]:hover:not([disabled]) .button__content:before,
 a.button[href]:focus:not([disabled]) .button__content:before,
 a.button[href]:active:not([disabled]) .button__content:before {
-    transform: translateY(-50%) translate(-50%) rotate(165deg);
-    background: var(--button-background-color--hover) padding-box, var(--background-gradient-border-color--hover) border-box
+  transform: translateY(-50%) translate(-50%) rotate(165deg);
+  background: var(--button-background-color--hover) padding-box, var(--background-gradient-border-color--hover) border-box;
 }
 
 .button:hover:not([disabled]):after,
@@ -102,233 +97,265 @@ a.button[href]:active:not([disabled]) .button__content:before {
 a.button[href]:hover:not([disabled]):after,
 a.button[href]:focus:not([disabled]):after,
 a.button[href]:active:not([disabled]):after {
-    box-shadow: var(--button-box-shadow--hover)
+  box-shadow: var(--button-box-shadow--hover);
 }
 
 .button:active .button__content span,
 a.button[href]:active .button__content span {
-    transform: scale(.98)
+  transform: scale(0.98);
 }
 
 .button:active:after,
 a.button[href]:active:after {
-    box-shadow: var(--button-box-shadow--active);
-    transition: 0s linear all
+  box-shadow: var(--button-box-shadow--active);
+  transition: 0s linear all;
 }
 
 .button:active .button__content:before,
 a.button[href]:active .button__content:before {
-    background: var(--button-background-color--active) padding-box, var(--background-gradient-border-color--active) border-box
+  background: var(--button-background-color--active) padding-box, var(--background-gradient-border-color--active) border-box;
 }
 
 .button:is([disabled]),
 a.button[href]:is([disabled]) {
-    --button-text-color: var(--santas-gray);
-    --button-background-color: linear-gradient(2deg, rgba(101, 108, 129, .2) -23.22%, rgba(101, 108, 129, 0) 28.73%), linear-gradient(138deg, #e9ebf1 4.79%, rgba(150, 156, 172, .5) 100%);
-    --button-background-color--hover: var(--button-background-color);
-    --button-background-color--active: var(--button-background-color);
-    --background-gradient-border-color: #f8f8fc;
-    --background-gradient-border-color--hover: #f8f8fc;
-    --background-gradient-border-color--active: #f8f8fc;
-    --button-box-shadow--hover: none;
-    --button-box-shadow--active: none;
-    cursor: not-allowed
+  --button-text-color: var(--santas-gray);
+  --button-background-color: linear-gradient(2deg, rgba(101, 108, 129, 0.2) -23.22%, rgba(101, 108, 129, 0) 28.73%),
+    linear-gradient(138deg, #e9ebf1 4.79%, rgba(150, 156, 172, 0.5) 100%);
+  --button-background-color--hover: var(--button-background-color);
+  --button-background-color--active: var(--button-background-color);
+  --background-gradient-border-color: #f8f8fc;
+  --background-gradient-border-color--hover: #f8f8fc;
+  --background-gradient-border-color--active: #f8f8fc;
+  --button-box-shadow--hover: none;
+  --button-box-shadow--active: none;
+  cursor: not-allowed;
 }
 
 .button--secondary,
 a.button--secondary[href] {
-    --button-text-color: var(--white);
-    --button-background-color: radial-gradient(49.77% 55.21% at 50.23% 127.08%, rgba(0, 0, 0, .6) 24.38%, rgba(0, 0, 0, 0) 100%), radial-gradient(138.99% 132.49% at 3.36% 9.38%, rgba(72, 79, 97, .6) 0%, #191e28e7 62.94%);
-    --button-background-color--hover: radial-gradient(49.77% 55.21% at 50.23% 127.08%, rgba(0, 0, 0, .6) 24.38%, rgba(0, 0, 0, 0) 100%), radial-gradient(138.99% 132.49% at 3.36% 9.38%, rgba(72, 79, 97, .6) 0%, #191e28e7 62.94%);
-    --button-background-color--active: radial-gradient(49.77% 55.21% at 50.23% 127.08%, rgba(0, 0, 0, .6) 24.38%, rgba(0, 0, 0, 0) 100%), radial-gradient(138.99% 132.49% at 3.36% 9.38%, rgba(72, 79, 97, .6) 0%, #191e28e7 62.94%);
-    --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, .05), 0px -5px 10px 0px rgba(0, 0, 0, .4) inset, 0px 5px 10px 0px rgba(150, 156, 172, .5) inset, 0px -1px 10px 0px rgba(150, 156, 172, .2) inset, 0px 1px 5px 0px rgba(150, 156, 172, .6) inset;
-    --button-box-shadow--active: 0px 0px 20px 15px rgba(150, 156, 172, 0), 0px -5px 10px 0px rgba(0, 0, 0, 0) inset, 0px 5px 10px 0px rgba(150, 156, 172, 0) inset, 0px -1px 10px 0px rgba(150, 156, 172, 0) inset, 0px 1px 5px 0px rgba(150, 156, 172, 0) inset;
-    --background-gradient-border-color: rgba(150, 156, 172, .2);
-    --background-gradient-border-color--hover: rgba(150, 156, 172, .2);
-    --background-gradient-border-color--active: rgba(150, 156, 172, .2)
+  --button-text-color: var(--white);
+  --button-background-color: radial-gradient(49.77% 55.21% at 50.23% 127.08%, rgba(0, 0, 0, 0.6) 24.38%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(138.99% 132.49% at 3.36% 9.38%, rgba(72, 79, 97, 0.6) 0%, #191e28e7 62.94%);
+  --button-background-color--hover: radial-gradient(49.77% 55.21% at 50.23% 127.08%, rgba(0, 0, 0, 0.6) 24.38%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(138.99% 132.49% at 3.36% 9.38%, rgba(72, 79, 97, 0.6) 0%, #191e28e7 62.94%);
+  --button-background-color--active: radial-gradient(49.77% 55.21% at 50.23% 127.08%, rgba(0, 0, 0, 0.6) 24.38%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(138.99% 132.49% at 3.36% 9.38%, rgba(72, 79, 97, 0.6) 0%, #191e28e7 62.94%);
+  --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, 0.05), 0px -5px 10px 0px rgba(0, 0, 0, 0.4) inset,
+    0px 5px 10px 0px rgba(150, 156, 172, 0.5) inset, 0px -1px 10px 0px rgba(150, 156, 172, 0.2) inset,
+    0px 1px 5px 0px rgba(150, 156, 172, 0.6) inset;
+  --button-box-shadow--active: 0px 0px 20px 15px rgba(150, 156, 172, 0), 0px -5px 10px 0px rgba(0, 0, 0, 0) inset,
+    0px 5px 10px 0px rgba(150, 156, 172, 0) inset, 0px -1px 10px 0px rgba(150, 156, 172, 0) inset,
+    0px 1px 5px 0px rgba(150, 156, 172, 0) inset;
+  --background-gradient-border-color: rgba(150, 156, 172, 0.2);
+  --background-gradient-border-color--hover: rgba(150, 156, 172, 0.2);
+  --background-gradient-border-color--active: rgba(150, 156, 172, 0.2);
 }
 
 .button--secondary:is([disabled]),
 a.button--secondary[href]:is([disabled]) {
-    --button-text-color: var(--santas-gray)
+  --button-text-color: var(--santas-gray);
 }
 
 .theme--blue .button--emphasized,
 .theme--blue a.button--emphasized[href] {
-    --button-text-color: #fff;
-    --button-background-color: linear-gradient(0deg, rgba(0, 22, 102, .4) -29.06%, rgba(0, 22, 102, 0) 28.12%), linear-gradient(139deg, rgba(0, 204, 255, .8) 5.1%, #0037ffef 65.2%);
-    --button-background-color--hover: linear-gradient(0deg, rgba(0, 22, 102, .4) -29.06%, rgba(0, 22, 102, 0) 28.12%), linear-gradient(139deg, rgba(0, 204, 255, .8) 5.1%, #0037ffef 65.2%);
-    --button-background-color--active: linear-gradient(0deg, rgba(0, 22, 102, .4) -32.84%, rgba(0, 22, 102, 0) 28.12%), linear-gradient(303deg, rgba(0, 204, 255, .8) -10.68%, #0037ffef 49.11%);
-    --button-box-shadow--hover: 0px 0px 20px 15px rgba(102, 135, 255, .05), 0px -5px 10px 0px rgba(0, 22, 102, .8) inset, 0px 5px 10px 0px rgba(153, 175, 255, .4) inset, 0px 5px 10px 0px rgba(153, 175, 255, .4) inset, 0px 1px 5px 0px rgba(153, 175, 255, .8) inset;
-    --button-box-shadow--active: 0px 0px 10px 5px rgba(0, 0, 0, .25), 0px -5px 10px 0px rgba(0, 11, 51, .4) inset, 0px 5px 10px 0px rgba(0, 11, 51, .4) inset, 0px -1px 10px 0px rgba(0, 22, 102, .4) inset, 0px 1px 5px 0px rgba(0, 22, 102, .8) inset;
-    --background-gradient-border-color: rgba(153, 175, 255, .2);
-    --background-gradient-border-color--hover: rgba(153, 175, 255, .2);
-    --background-gradient-border-color--active: rgba(153, 175, 255, .2)
+  --button-text-color: #fff;
+  --button-background-color: linear-gradient(0deg, rgba(0, 22, 102, 0.4) -29.06%, rgba(0, 22, 102, 0) 28.12%),
+    linear-gradient(139deg, rgba(0, 204, 255, 0.8) 5.1%, #0037ffef 65.2%);
+  --button-background-color--hover: linear-gradient(0deg, rgba(0, 22, 102, 0.4) -29.06%, rgba(0, 22, 102, 0) 28.12%),
+    linear-gradient(139deg, rgba(0, 204, 255, 0.8) 5.1%, #0037ffef 65.2%);
+  --button-background-color--active: linear-gradient(0deg, rgba(0, 22, 102, 0.4) -32.84%, rgba(0, 22, 102, 0) 28.12%),
+    linear-gradient(303deg, rgba(0, 204, 255, 0.8) -10.68%, #0037ffef 49.11%);
+  --button-box-shadow--hover: 0px 0px 20px 15px rgba(102, 135, 255, 0.05), 0px -5px 10px 0px rgba(0, 22, 102, 0.8) inset,
+    0px 5px 10px 0px rgba(153, 175, 255, 0.4) inset, 0px 5px 10px 0px rgba(153, 175, 255, 0.4) inset,
+    0px 1px 5px 0px rgba(153, 175, 255, 0.8) inset;
+  --button-box-shadow--active: 0px 0px 10px 5px rgba(0, 0, 0, 0.25), 0px -5px 10px 0px rgba(0, 11, 51, 0.4) inset,
+    0px 5px 10px 0px rgba(0, 11, 51, 0.4) inset, 0px -1px 10px 0px rgba(0, 22, 102, 0.4) inset, 0px 1px 5px 0px rgba(0, 22, 102, 0.8) inset;
+  --background-gradient-border-color: rgba(153, 175, 255, 0.2);
+  --background-gradient-border-color--hover: rgba(153, 175, 255, 0.2);
+  --background-gradient-border-color--active: rgba(153, 175, 255, 0.2);
 }
 
 .button--text,
 a.button--text[href] {
-    --button-text-color: var(--color-text-body);
-    --button-background-color: transparent;
-    --button-background-color--hover: transparent;
-    --button-background-color--active: transparent;
-    --button-box-shadow--hover: none;
-    --button-box-shadow--active: none;
-    --background-gradient-border-color: rgba(150, 156, 172, .2);
-    --background-gradient-border-color--hover: rgba(150, 156, 172, .2);
-    --background-gradient-border-color--active: rgba(150, 156, 172, .2);
-    --button-font-weight: var(--font-weight-medium);
-    --button-padding: .8rem 0 .68rem 0;
+  --button-text-color: var(--color-text-body);
+  --button-background-color: transparent;
+  --button-background-color--hover: transparent;
+  --button-background-color--active: transparent;
+  --button-box-shadow--hover: none;
+  --button-box-shadow--active: none;
+  --background-gradient-border-color: rgba(150, 156, 172, 0.2);
+  --background-gradient-border-color--hover: rgba(150, 156, 172, 0.2);
+  --background-gradient-border-color--active: rgba(150, 156, 172, 0.2);
+  --button-font-weight: var(--font-weight-medium);
+  --button-padding: 0.8rem 0 0.68rem 0;
 }
 
 .button--text:is([disabled]),
 a.button--text[href]:is([disabled]) {
-    --button-text-color: var(--santas-gray)
+  --button-text-color: var(--santas-gray);
 }
-
 
 .theme--purple .button--emphasized,
 .theme--purple a.button--emphasized[href] {
-    --button-background-color: linear-gradient(2deg, rgba(27, 6, 51, .4) -10.77%, rgba(27, 6, 51, 0) 28.9%), linear-gradient(138deg, rgba(182, 119, 255, .8) -5.95%, rgba(107, 23, 204, .9) 53.59%);
-    --button-background-color--hover: linear-gradient(2deg, rgba(27, 6, 51, .4) -10.77%, rgba(27, 6, 51, 0) 28.9%), linear-gradient(138deg, rgba(182, 119, 255, .8) -5.95%, rgba(107, 23, 204, .9) 53.59%);
-    --button-background-color--active: linear-gradient(2deg, rgba(27, 6, 51, .4) -10.77%, rgba(27, 6, 51, 0) 28.9%), linear-gradient(138deg, rgba(182, 119, 255, .8) -5.95%, rgba(107, 23, 204, .9) 53.59%);
-    --background-gradient-border-color: rgba(207, 165, 255, .2);
-    --background-gradient-border-color--hover: rgba(207, 165, 255, .2);
-    --background-gradient-border-color--active: rgba(207, 165, 255, .2);
-    --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, .05), 0px -5px 10px 0px rgba(27, 6, 51, .4) inset, 0px 5px 10px 0px rgba(207, 165, 255, .4) inset, 0px -1px 10px 0px rgba(207, 165, 255, .4) inset, 0px 1px 5px 0px rgba(207, 165, 255, .8) inset;
-    --button-box-shadow--active: 0px 0px 20px 15px rgba(0, 0, 0, .25), 0px -5px 10px 0px rgba(54, 12, 102, .4) inset, 0px 5px 10px 0px rgba(54, 12, 102, .4) inset, 0px -1px 10px 0px rgba(54, 12, 102, .4) inset, 0px 1px 5px 0px rgba(54, 12, 102, .8) inset
+  --button-background-color: linear-gradient(2deg, rgba(27, 6, 51, 0.4) -10.77%, rgba(27, 6, 51, 0) 28.9%),
+    linear-gradient(138deg, rgba(182, 119, 255, 0.8) -5.95%, rgba(107, 23, 204, 0.9) 53.59%);
+  --button-background-color--hover: linear-gradient(2deg, rgba(27, 6, 51, 0.4) -10.77%, rgba(27, 6, 51, 0) 28.9%),
+    linear-gradient(138deg, rgba(182, 119, 255, 0.8) -5.95%, rgba(107, 23, 204, 0.9) 53.59%);
+  --button-background-color--active: linear-gradient(2deg, rgba(27, 6, 51, 0.4) -10.77%, rgba(27, 6, 51, 0) 28.9%),
+    linear-gradient(138deg, rgba(182, 119, 255, 0.8) -5.95%, rgba(107, 23, 204, 0.9) 53.59%);
+  --background-gradient-border-color: rgba(207, 165, 255, 0.2);
+  --background-gradient-border-color--hover: rgba(207, 165, 255, 0.2);
+  --background-gradient-border-color--active: rgba(207, 165, 255, 0.2);
+  --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, 0.05), 0px -5px 10px 0px rgba(27, 6, 51, 0.4) inset,
+    0px 5px 10px 0px rgba(207, 165, 255, 0.4) inset, 0px -1px 10px 0px rgba(207, 165, 255, 0.4) inset,
+    0px 1px 5px 0px rgba(207, 165, 255, 0.8) inset;
+  --button-box-shadow--active: 0px 0px 20px 15px rgba(0, 0, 0, 0.25), 0px -5px 10px 0px rgba(54, 12, 102, 0.4) inset,
+    0px 5px 10px 0px rgba(54, 12, 102, 0.4) inset, 0px -1px 10px 0px rgba(54, 12, 102, 0.4) inset,
+    0px 1px 5px 0px rgba(54, 12, 102, 0.8) inset;
 }
 
 .theme--green .button--emphasized,
 .theme--green a.button--emphasized[href] {
-    --button-background-color: linear-gradient(2deg, rgba(24, 90, 52, .2) -8.85%, rgba(24, 90, 52, 0) 28.94%), linear-gradient(133deg, #89ecb3 -4.17%, #3be081 16.74%, #2fb366ec 70.79%);
-    --button-background-color--hover: linear-gradient(2deg, rgba(24, 90, 52, .2) -8.85%, rgba(24, 90, 52, 0) 28.94%), linear-gradient(133deg, #89ecb3 -4.17%, #3be081 16.74%, #2fb366ec 70.79%);
-    --button-background-color--active: linear-gradient(2deg, rgba(24, 90, 52, .2) -8.85%, rgba(24, 90, 52, 0) 28.94%), linear-gradient(133deg, #89ecb3 -4.17%, #3be081 16.74%, #2fb366ec 70.79%);
-    --background-gradient-border-color: rgba(177, 243, 205, .2);
-    --background-gradient-border-color--hover: rgba(177, 243, 205, .2);
-    --background-gradient-border-color--active: rgba(177, 243, 205, .2);
-    --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, .05), 0px -5px 10px 0px rgba(12, 45, 26, .4) inset, 0px 5px 10px 0px rgba(177, 243, 205, .4) inset, 0px -1px 10px 0px rgba(177, 243, 205, .4) inset, 0px 1px 5px 0px rgba(177, 243, 205, .8) inset;
-    --button-box-shadow--active: 0px 0px 20px 15px rgba(0, 0, 0, .25), 0px -5px 10px 0px rgba(24, 90, 52, .4) inset, 0px 5px 10px 0px rgba(24, 90, 52, .4) inset, 0px -1px 10px 0px rgba(24, 90, 52, .4) inset, 0px 1px 5px 0px rgba(24, 90, 52, .8) inset
+  --button-background-color: linear-gradient(2deg, rgba(24, 90, 52, 0.2) -8.85%, rgba(24, 90, 52, 0) 28.94%),
+    linear-gradient(133deg, #89ecb3 -4.17%, #3be081 16.74%, #2fb366ec 70.79%);
+  --button-background-color--hover: linear-gradient(2deg, rgba(24, 90, 52, 0.2) -8.85%, rgba(24, 90, 52, 0) 28.94%),
+    linear-gradient(133deg, #89ecb3 -4.17%, #3be081 16.74%, #2fb366ec 70.79%);
+  --button-background-color--active: linear-gradient(2deg, rgba(24, 90, 52, 0.2) -8.85%, rgba(24, 90, 52, 0) 28.94%),
+    linear-gradient(133deg, #89ecb3 -4.17%, #3be081 16.74%, #2fb366ec 70.79%);
+  --background-gradient-border-color: rgba(177, 243, 205, 0.2);
+  --background-gradient-border-color--hover: rgba(177, 243, 205, 0.2);
+  --background-gradient-border-color--active: rgba(177, 243, 205, 0.2);
+  --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, 0.05), 0px -5px 10px 0px rgba(12, 45, 26, 0.4) inset,
+    0px 5px 10px 0px rgba(177, 243, 205, 0.4) inset, 0px -1px 10px 0px rgba(177, 243, 205, 0.4) inset,
+    0px 1px 5px 0px rgba(177, 243, 205, 0.8) inset;
+  --button-box-shadow--active: 0px 0px 20px 15px rgba(0, 0, 0, 0.25), 0px -5px 10px 0px rgba(24, 90, 52, 0.4) inset,
+    0px 5px 10px 0px rgba(24, 90, 52, 0.4) inset, 0px -1px 10px 0px rgba(24, 90, 52, 0.4) inset, 0px 1px 5px 0px rgba(24, 90, 52, 0.8) inset;
 }
 
 .theme--orange .button--emphasized,
 .theme--orange a.button--emphasized[href] {
-    --button-background-color: linear-gradient(2deg, rgba(51, 26, 3, .2) -15.57%, rgba(51, 26, 3, 0) 28.83%), linear-gradient(135deg, #ffb800f8 0%, #ff8010f8 71.96%);
-    --button-background-color--hover: linear-gradient(2deg, rgba(51, 26, 3, .2) -15.57%, rgba(51, 26, 3, 0) 28.83%), linear-gradient(135deg, #ffb800f8 0%, #ff8010f8 71.96%);
-    --button-background-color--active: linear-gradient(2deg, rgba(51, 26, 3, .2) -15.57%, rgba(51, 26, 3, 0) 28.83%), linear-gradient(135deg, #ffb800f8 0%, #ff8010f8 71.96%);
-    --background-gradient-border-color: rgba(255, 205, 159, .2);
-    --background-gradient-border-color--hover: rgba(255, 205, 159, .2);
-    --background-gradient-border-color--active: rgba(255, 205, 159, .2);
-    --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, .05), 0px -5px 10px 0px rgba(51, 26, 3, .4) inset, 0px 5px 10px 0px rgba(255, 205, 159, .4) inset, 0px -1px 10px 0px rgba(255, 205, 159, .4) inset, 0px 1px 5px 0px rgba(255, 205, 159, .8) inset;
-    --button-box-shadow--active: 0px 0px 10px 5px rgba(0, 0, 0, .25), 0px -5px 10px 0px rgba(102, 52, 6, .4) inset, 0px 5px 10px 0px rgba(102, 52, 6, .4) inset, 0px -1px 10px 0px rgba(102, 52, 6, .4) inset, 0px 1px 5px 0px rgba(102, 52, 6, .8) inset
+  --button-background-color: linear-gradient(2deg, rgba(51, 26, 3, 0.2) -15.57%, rgba(51, 26, 3, 0) 28.83%),
+    linear-gradient(135deg, #ffb800f8 0%, #ff8010f8 71.96%);
+  --button-background-color--hover: linear-gradient(2deg, rgba(51, 26, 3, 0.2) -15.57%, rgba(51, 26, 3, 0) 28.83%),
+    linear-gradient(135deg, #ffb800f8 0%, #ff8010f8 71.96%);
+  --button-background-color--active: linear-gradient(2deg, rgba(51, 26, 3, 0.2) -15.57%, rgba(51, 26, 3, 0) 28.83%),
+    linear-gradient(135deg, #ffb800f8 0%, #ff8010f8 71.96%);
+  --background-gradient-border-color: rgba(255, 205, 159, 0.2);
+  --background-gradient-border-color--hover: rgba(255, 205, 159, 0.2);
+  --background-gradient-border-color--active: rgba(255, 205, 159, 0.2);
+  --button-box-shadow--hover: 0px 0px 20px 15px rgba(150, 156, 172, 0.05), 0px -5px 10px 0px rgba(51, 26, 3, 0.4) inset,
+    0px 5px 10px 0px rgba(255, 205, 159, 0.4) inset, 0px -1px 10px 0px rgba(255, 205, 159, 0.4) inset,
+    0px 1px 5px 0px rgba(255, 205, 159, 0.8) inset;
+  --button-box-shadow--active: 0px 0px 10px 5px rgba(0, 0, 0, 0.25), 0px -5px 10px 0px rgba(102, 52, 6, 0.4) inset,
+    0px 5px 10px 0px rgba(102, 52, 6, 0.4) inset, 0px -1px 10px 0px rgba(102, 52, 6, 0.4) inset, 0px 1px 5px 0px rgba(102, 52, 6, 0.8) inset;
 }
 
 .button--small,
 a.button--small[href] {
-    --button-padding: .5rem 1.2rem;
-    --button-font-weight: 300;
-    --button-font-size: 1.4rem
+  --button-padding: 0.5rem 1.2rem;
+  --button-font-weight: 300;
+  --button-font-size: 1.4rem;
 }
 
 .button .icon-arrowLeft {
-    transform: translate(8px);
-    transition: .5s ease-in-out all
+  transform: translate(8px);
+  transition: 0.5s ease-in-out all;
 }
 
 .button .icon-arrowLeft line {
-    transform: scale(0);
-    transform-origin: left;
-    transition: .5s ease-in-out all
+  transform: scale(0);
+  transform-origin: left;
+  transition: 0.5s ease-in-out all;
 }
 
 .button .icon-arrowRight {
-    transform: translate(-8px);
-    transition: .5s ease-in-out all
+  transform: translate(-8px);
+  transition: 0.5s ease-in-out all;
 }
 
 .button .icon-arrowRight line {
-    transform: scale(0);
-    transform-origin: right;
-    transition: .5s ease-in-out all
+  transform: scale(0);
+  transform-origin: right;
+  transition: 0.5s ease-in-out all;
 }
 
 .button .icon-arrowDown {
-    transform: translateY(-4px);
-    transition: .5s ease-in-out all
+  transform: translateY(-4px);
+  transition: 0.5s ease-in-out all;
 }
 
 .button .icon-arrowDown line {
-    transform: scale(0);
-    transform-origin: bottom;
-    transition: .5s ease-in-out all
+  transform: scale(0);
+  transform-origin: bottom;
+  transition: 0.5s ease-in-out all;
 }
 
 .button .icon-play {
-    transform: translateY(0);
-    fill: transparent;
-    transition: .5s ease-in-out all
+  transform: translateY(0);
+  fill: transparent;
+  transition: 0.5s ease-in-out all;
 }
 
 .button:hover .icon-arrowLeft,
 .button:focus .icon-arrowLeft {
-    transform: translate(0)
+  transform: translate(0);
 }
 
 .button:hover .icon-arrowLeft line,
 .button:focus .icon-arrowLeft line {
-    transform: scale(1)
+  transform: scale(1);
 }
 
 .button:hover .icon-arrowRight,
 .button:focus .icon-arrowRight {
-    transform: translate(0)
+  transform: translate(0);
 }
 
 .button:hover .icon-arrowRight line,
 .button:focus .icon-arrowRight line {
-    transform: scale(1)
+  transform: scale(1);
 }
 
 .button:hover .icon-arrowDown,
 .button:focus .icon-arrowDown {
-    transform: translate(0)
+  transform: translate(0);
 }
 
 .button:hover .icon-arrowDown line,
 .button:focus .icon-arrowDown line {
-    transform: scale(1)
+  transform: scale(1);
 }
 
 .button:hover .icon-play,
 .button:focus .icon-play {
-    fill: currentColor
+  fill: currentColor;
 }
 
 .button:active .icon-arrowLeft {
-    transform: translate(0) scale(.95)
+  transform: translate(0) scale(0.95);
 }
 
 .button:active .icon-arrowLeft line {
-    transform: scale(1)
+  transform: scale(1);
 }
 
 .button:active .icon-arrowRight {
-    transform: translate(0) scale(.95)
+  transform: translate(0) scale(0.95);
 }
 
 .button:active .icon-arrowRight line {
-    transform: scale(1)
+  transform: scale(1);
 }
 
 .button:active .icon-arrowDown {
-    transform: translate(0) scale(.95)
+  transform: translate(0) scale(0.95);
 }
 
 .button:active .icon-arrowDown line {
-    transform: scale(1)
+  transform: scale(1);
 }
 
 .button:active .icon-play {
-    transform: scale(.95);
-    fill: currentColor
+  transform: scale(0.95);
+  fill: currentColor;
 }

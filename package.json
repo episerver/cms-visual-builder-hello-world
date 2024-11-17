@@ -6,14 +6,19 @@
     "codegen": "graphql-codegen",
     "dev": "next dev --experimental-https",
     "build": "next build",
+    "build:all": "yarn build:communicationInjector && yarn codegen && yarn build",
+    "build:communication": "vite build --config vite-ci.config.ts",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
     "clsx": "^2.1.1",
+    "dom-to-image-more": "^3.5.0",
     "graphql": "^16.8.1",
+    "html2canvas-pro": "^1.5.8",
     "next": "^15.0.3",
+    "object-hash": "^3.0.0",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -22,11 +27,13 @@
     "@graphql-codegen/client-preset": "^4.2.6",
     "@parcel/watcher": "^2.4.1",
     "@types/node": "^20",
+    "@types/object-hash": "^3.0.6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "tailwindcss-base-font-size": "^1.0.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^5.4.11"
   }
 }

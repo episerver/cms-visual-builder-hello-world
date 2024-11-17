@@ -3,6 +3,8 @@ import { QuoteFragmentFragment } from "@generated/graphql";
 import { useMemo } from "react";
 import { GetQuoteStyles } from "./quote.style";
 import { ElementProps } from "../element.types";
+import Image from "next/image";
+import { AutosizedImage } from "@components/partials/autosized-image";
 
 export interface QuoteElementProps extends ElementProps<QuoteFragmentFragment> {}
 
@@ -29,8 +31,8 @@ export const QuoteElementComponent: React.FC<QuoteElementProps> = ({ element, el
               <div className="flex flex-col">
                 <p className="text-sm font-medium">{QuoteBrandName}</p>
                 {QuoteLogo?.url?.default && (
-                  <div>
-                    <img className="max-w-[125px] h-[30px] mt-3" src={QuoteLogo?.url?.default} alt={"Logo"} />
+                  <div className="max-w-[125px] h-[30px] mt-3 relative">
+                    <AutosizedImage src={QuoteLogo?.url?.default} alt={"Logo"} />
                   </div>
                 )}
               </div>

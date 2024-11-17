@@ -13,7 +13,8 @@ export class OptimizelyIntegrationClient extends ApolloClient<NormalizedCacheObj
   private config: OptimizelyIntegrationClientConfig;
 
   public get communicationInjector() {
-    return `https://${this.config.cmsUrl}/Util/javascript/communicationInjector.js`;
+    // return `https://${this.config.cmsUrl}/Util/javascript/communicationInjector.js`;
+    return "/scripts/communicationInjector.js";
   }
 
   constructor(config: OptimizelyIntegrationClientConfig) {

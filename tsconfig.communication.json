@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "moduleResolution": "Node"
+  },
+  "include": [
+    "./scripts/communicationInjector.ts",
+    "./scripts/build-property-collection.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next"
+  ]
+}

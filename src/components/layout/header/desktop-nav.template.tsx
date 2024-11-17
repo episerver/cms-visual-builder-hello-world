@@ -13,9 +13,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ items }) =
         <div className="container">
           <div className="flex justify-between min-h-12 items-center">
             <div className="grid grid-flow-col gap-8 items-center min-h-20">
-              <div className="flex">
-                <LogoTemplate />
-              </div>
+              <LogoTemplate />
               <ul className="flex w-full items-center justify-end">
                 {items.map((item, index) => (
                   <li key={item.url ?? index}>

@@ -1,5 +1,7 @@
 import { StatsFragmentFragment } from "@generated/graphql";
 import { ElementProps } from "../element.types";
+import Image from "next/image";
+import { AutosizedImage } from "@components/partials/autosized-image";
 
 export interface StatsElementProps extends ElementProps<StatsFragmentFragment> {}
 
@@ -17,7 +19,7 @@ export const StatsElementComponent: React.FC<StatsElementProps> = ({ element, el
         <div className="stats-inner__content">
           {logoUrl && (
             <div className="stats-logo">
-              <img src={logoUrl ?? ""} alt={`${StatsTitle} - ${StatsSubtitle}`} />
+              <AutosizedImage src={logoUrl ?? ""} alt={`${StatsTitle} - ${StatsSubtitle}`} />
             </div>
           )}
           <div className="stats-inner__body">

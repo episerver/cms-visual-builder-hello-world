@@ -17,9 +17,9 @@ export const SectionTemplate: React.FC<SectionTemplateProps> = ({ section }) => 
   }, [section]);
 
   return (
-    <section className={classes.wrapperClasses}>
+    <section className={classes.wrapperClasses} data-epi-block-id={section.key}>
       <div className="opti-container__background"></div>
-      <div className={classes.contentClasses} data-epi-block-id={section.key}>
+      <div className={classes.contentClasses}>
         {section.rows?.map((row) => {
           return row && <RowTemplate row={row as RowNodeFragment} key={row.key} />;
         })}

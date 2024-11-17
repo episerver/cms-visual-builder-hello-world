@@ -6,7 +6,7 @@
     "codegen": "graphql-codegen",
     "dev": "next dev --experimental-https",
     "build": "next build",
-    "build:all": "yarn build:communicationInjector && yarn codegen && yarn build",
+    "build:all": "yarn build:communication && yarn codegen && yarn build",
     "build:communication": "vite build --config vite-ci.config.ts",
     "start": "next start",
     "lint": "next lint"

@@ -31,7 +31,7 @@ export const QuoteElementComponent: React.FC<QuoteElementProps> = ({ element, el
               <div className="flex flex-col">
                 <p className="text-sm font-medium">{QuoteBrandName}</p>
                 {QuoteLogo?.url?.default && (
-                  <div className="max-w-[125px] h-[30px] mt-3 relative">
+                  <div className="max-w-[125px] h-[30px] mt-3 relative self-start">
                     <AutosizedImage src={QuoteLogo?.url?.default} alt={"Logo"} />
                   </div>
                 )}

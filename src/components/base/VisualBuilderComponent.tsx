@@ -23,7 +23,7 @@ query VisualBuilder($key: String, $version: String) {
                       ... on CompositionStructureNode {
                         key
                         elements: nodes {
-                          ...compositionElementNode
+                          ...compositionComponentNode
                         }
                       }
                     }
@@ -94,7 +94,7 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ version, contentKey })
                                     <div className="flex-1 flex flex-col flex-nowrap justify-start vb:col" key={column.key}>
                                         {column.elements?.map((element: any) =>
                                             <div data-epi-block-id={element?.key} key={element?.key}>
-                                                <CompositionNodeComponent compositionElementNode={element}/>
+                                                <CompositionNodeComponent compositionComponentNode={element}/>
                                             </div>
                                         )}
                                     </div>

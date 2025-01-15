@@ -12,13 +12,16 @@ If you have an empty CMS instance, and you want to see how it all
 works go to your CMS (SaaS) instance and:
 
 1. Go to **Settings** > **Content Types**.
-2. Click **Create New** and select **Element Type** from the drop-down list.
+2. Click **Create New** and select **Block Type** from the drop-down list.
 3. Enter _ParagraphElement_ for the **Name** and **Display name** fields.
 4. Click **Create**. 
 5. Click **Add Property** and select **Text** from the drop-down list.
 6. Enter _Text_ for the **Name** in the **Configure Property** page.
 7. Click on the **Text Type** drop-down menu and select **XHTML string (>255)**.
 8. Click **Save**.
+8. Go to **Setting** 
+9. Tick checkboxes **Available for composition in Visual Builder** and **Display as Element**
+10. Click **Save**.
 
 Then in order to run the sample you need to do the following:
 
@@ -110,21 +113,24 @@ We now need to add a new script to package.json
 
 This script will generate types based your graphql schema.
 
-### Adding element type 
+### Adding element 
 
-Before we run the codegen let's add a simple Element type to our SaaS CMS instance. 
+Before we run the codegen let's add a simple Element to our SaaS CMS instance. 
 Please open `Settings` and `Content types` screen.
 
-Click on `Create New...` menu item and choose `Element type` option.
-![clicking add element type](docs/contenttype_add_elementtype.png)
+Click on `Create New...` menu item and choose `Block type` option.
+![clicking add element type](docs/contenttype_add_block.png)
 
 Fill in the name and display name and hit the `Create` button.
-![adding element name](docs/contenttype_add_elementtype_dialog.png)
+![adding element name](docs/contenttype_add_block_dialog.png)
 
 You will see an empty list of properties, hit the `Add property` button and add a single `Text` `XHTML string` property:
 ![adding property](docs/contenttype_add_property.png)
 
-After that you should see the newly created element type in the list.
+After that click on `Settings`and tick `Available for composition in Visual Builder` and `Display as Element` checkboxes
+![display as element](docs/block_settings_display_as.png)
+
+You should see the newly created element type in the list.
 ![added element type](docs/contenttype_list.png)
 
 ### Graphql generation
@@ -201,7 +207,7 @@ query VisualBuilder($key: String, $version: String) {
                       ... on CompositionStructureNode {
                         key
                         elements: nodes {
-                          ...compositionElementNode
+                          ...compositionComponentNode
                         }
                       }
                     }
@@ -265,7 +271,7 @@ const VisualBuilderComponent: FC<VisualBuilderProps> = ({ key, version }) => {
                                     <div className="flex-1 flex flex-col flex-nowrap justify-start vb:col" key={column.key}>
                                         {column.elements?.map((element: any) =>
                                             <div data-epi-block-id={element?.key} key={element?.key}>
-                                                <CompositionNodeComponent compositionElementNode={element}/>
+                                                <CompositionNodeComponent compositionComponentNode={element}/>
                                             </div>
                                         )}
                                     </div>
@@ -292,10 +298,10 @@ import { FragmentType, useFragment } from '../../graphql/fragment-masking'
 import { graphql } from '@/graphql'
 import ParagraphElementComponent from '../elements/ParagraphElementComponent'
 
-export const CompositionElementNodeFragment = graphql(/* GraphQL */ `
-    fragment compositionElementNode on CompositionElementNode {
+export const CompositionComponentNodeFragment = graphql(/* GraphQL */ `
+    fragment compositionComponentNode on CompositionComponentNode {
         key
-        element {
+        component {
             _metadata {
                 types
             }
@@ -304,23 +310,23 @@ export const CompositionElementNodeFragment = graphql(/* GraphQL */ `
     }
 `)
 
-const CompositionElementNodeComponent = (props: {
-    compositionElementNode: FragmentType<typeof CompositionElementNodeFragment>
+const CompositionComponentNodeComponent = (props: {
+    compositionComponentNode: FragmentType<typeof CompositionComponentNodeFragment>
 }) => {
-    const compositionElementNode = useFragment(CompositionElementNodeFragment, props.compositionElementNode)
-    const element = compositionElementNode.element
-    switch (element?.__typename) {
+    const compositionComponentNode = useFragment(CompositionComponentNodeFragment, props.compositionComponentNode)
+    const component = compositionComponentNode.component
+    switch (component?.__typename) {
         case "ParagraphElement":
-            return <ParagraphElementComponent paragraphElement={element}/>
+            return <ParagraphElementComponent paragraphElement={component}/>
         default:
             return <>NotImplementedException</>
     }
 }
 
-export default CompositionElementNodeComponent
+export default CompositionComponentNodeComponent
 ```
 
-As you can see based on `element.__typename` we can use different components - in our
+As you can see based on `component.__typename` we can use different components - in our
 example we will use `ParagraphElementComponent`.
 
 ### Subscribing to content changes

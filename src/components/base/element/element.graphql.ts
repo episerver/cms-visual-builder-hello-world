@@ -1,7 +1,7 @@
 import { graphql } from "@generated/graphql/gql";
 
 export const ElementFragment = graphql(/* GraphQL */ `
-  fragment ElementNode on CompositionElementNode {
+  fragment ElementNode on CompositionComponentNode {
     key
     type
     nodeType
@@ -11,7 +11,7 @@ export const ElementFragment = graphql(/* GraphQL */ `
       key
       value
     }
-    element {
+    component {
       ...ButtonFragment
       ...HeadingFragment
       ...StatsFragment

@@ -18,7 +18,7 @@ export const ElementTemplate: React.FC<ElementTemplateProps> = ({ element }) => 
 
   return (
     <ElementComponent
-      element={element.element}
+      element={element.component}
       elementKey={element.key}
       displayTemplateKey={element.displayTemplateKey}
       displaySettings={element.displaySettings as CompositionDisplaySetting[]}

@@ -15,7 +15,7 @@ interface Node {
   children?: Node[];
 }
 
-function extractText(node: Node): string {
+export function extractText(node: Node): string {
   if (!node) return "";
 
   if (typeof node.text === "string" && node.text !== "&nbsp;") return node.text;

@@ -29,3 +29,13 @@ export const JustPageQuery = graphql(/* GraphQL */ `
     }
   }
 `);
+
+export const JustPageFragment = graphql(/* GraphQL */ `
+  fragment JustPageFragment on JustPage {
+    Block {
+      Text {
+        json
+      }
+    }
+  }
+`);

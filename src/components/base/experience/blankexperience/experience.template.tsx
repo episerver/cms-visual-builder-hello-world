@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import {
+  BlankExperienceFragmentFragment,
   CompositionDisplaySetting,
   SectionNodeFragment,
 } from "@generated/graphql";
@@ -9,6 +10,7 @@ import { SectionTemplate } from "../../section/section.template";
 import { ExperienceQuery } from "./experience.graphql";
 import { GetExperienceStyles } from "./experience.style";
 import { useGlobalContext } from "@context";
+import { getContentByPath } from "@components/base/templates/metadata.graphql";
 
 interface ExperienceTemplateProps {
   contentGuid?: string | null; // Content GUID
@@ -26,7 +28,6 @@ export const ExperienceTemplate: React.FC<ExperienceTemplateProps> = ({
 }) => {
   const { setIsLoading } = useGlobalContext();
   const queryVariables = {
-    key: contentGuid,
     version,
     locale,
     url,
@@ -50,6 +51,20 @@ export const ExperienceTemplate: React.FC<ExperienceTemplateProps> = ({
     },
   });
 
+  // const { data, refetch, error, loading } = useQuery(getContentByPath, {
+  //   variables: { url: url! },
+  //   notifyOnNetworkStatusChange: true,
+  //   onError: (error) => {
+  //     console.error("[QUERY] Error fetching Experience", error);
+  //     // refetch(queryVariables);
+  //     setIsLoading(false);
+  //   },
+  //   onCompleted: (data) => {
+  //     console.log("[QUERY] Query finished with variables", {}, data);
+  //     setIsLoading(false);
+  //   },
+  // });
+
   const experience = useMemo(() => {
     const items = data?.content?.items;
     if (!data || !items || items.length === 0) {
@@ -57,7 +72,7 @@ export const ExperienceTemplate: React.FC<ExperienceTemplateProps> = ({
     }
 
     return items[0];
-  }, [data]);
+  }, [data]) as BlankExperienceFragmentFragment;
 
   useContentSaved((data) => {
     const [contentId, contentVersion] = data.contentLink.split("_");
@@ -65,7 +80,7 @@ export const ExperienceTemplate: React.FC<ExperienceTemplateProps> = ({
       queryVariables.version = contentVersion;
     }
 
-    refetch(queryVariables);
+    // refetch(queryVariables);
   });
 
   useEffect(() => {

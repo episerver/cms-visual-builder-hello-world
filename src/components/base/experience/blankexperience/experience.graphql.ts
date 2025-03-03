@@ -37,3 +37,21 @@ export const ExperienceQuery = graphql(/* GraphQL */ `
     }
   }
 `);
+
+export const BlankExperienceFragment = graphql(/* GraphQL */ `
+  fragment BlankExperienceFragment on BlankExperience {
+    composition {
+      key
+      displayName
+      displayTemplateKey
+      displaySettings {
+        key
+        value
+      }
+      sections: nodes {
+        key
+        ...SectionNode
+      }
+    }
+  }
+`);

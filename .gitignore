@@ -43,3 +43,4 @@ certificates
 
 # graphql
 src/generated/
+config.bat
